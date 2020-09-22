@@ -1,30 +1,20 @@
 package main
 
 import (
-	"log"
-	"os"
-
 	"github.com/akrylysov/algnhsa"
-	"github.com/gorilla/mux"
-	controller "github.com/graphql-services/graphql-files/controllers"
-	"github.com/rs/cors"
+	"github.com/graphql-services/graphql-files/gen"
+	"github.com/graphql-services/graphql-files/src"
 )
 
 func main() {
+	db := gen.NewDBFromEnvVars()
 
-	bucket := os.Getenv("S3_BUCKET")
-	if bucket == "" {
-		log.Fatal("Missing S3_BUCKET environment variable")
+	eventController, err := gen.NewEventController()
+	if err != nil {
+		panic(err)
 	}
 
-	r := mux.NewRouter()
-
-	controller.HealthcheckHandler(r)
-	controller.UploadHandler(r, bucket)
-	controller.FilesHandler(r, bucket)
-
-	handler := cors.AllowAll().Handler(r)
-
+	handler := gen.GetHTTPServeMux(src.New(db, &eventController), db, src.GetMigrations(db))
 	algnhsa.ListenAndServe(handler, &algnhsa.Options{
 		UseProxyPath: true,
 	})

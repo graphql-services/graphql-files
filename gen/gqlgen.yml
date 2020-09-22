@@ -1,0 +1,36 @@
+# Generated with graphql-orm
+
+schema:
+  - schema.graphql
+exec:
+  filename: generated.go
+  package: gen
+model:
+  filename: models_gen.go
+  package: gen
+resolver:
+  filename: resolver.go
+  type: Resolver
+  package: gen
+
+models:
+  
+  File:
+    model: github.com/graphql-services/graphql-files/gen.File
+    fields:
+  FileResultType:
+    model: github.com/graphql-services/graphql-files/gen.FileResultType
+    fields:
+      count:
+        resolver: true
+      items:
+        resolver: true
+  FileCreateInput:
+    model: "map[string]interface{}"
+  FileUpdateInput:
+    model: "map[string]interface{}"
+  
+  
+  
+  _Any:
+    model: github.com/graphql-services/graphql-files/gen._Any

@@ -1,0 +1,11 @@
+type File @entity {
+  email: String @column
+  UID: ID @column
+  Size: Int @column
+  ContentType: String @column
+  URL: String @column
+  Name: String @column
+
+  Reference: String @column(index: "findref")
+  ReferenceID: ID @column(index: "findref")
+}
