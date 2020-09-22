@@ -1,4 +1,4 @@
-type File @entity {
+type File @entity @key(fields: "id") {
   email: String @column
   UID: ID @column
   Size: Int @column

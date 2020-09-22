@@ -28,7 +28,7 @@ enum ObjectSortType {
   DESC
 }
 
-type File {
+type File @key(fields: "id") {
   id: ID!
   email: String
   UID: ID

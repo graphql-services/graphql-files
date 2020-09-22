@@ -11,6 +11,7 @@ schema {
 
 type Query {
   _service: _Service!
+  _entities(representations: [_Any!]!): [_Entity]!
   file(id: ID, q: String, filter: FileFilterType): File
   files(offset: Int, limit: Int = 30, q: String, sort: [FileSortType!], filter: FileFilterType): FileResultType!
 }
@@ -460,3 +461,5 @@ type FileResultType {
 type _Service {
   sdl: String
 }
+
+union _Entity = File

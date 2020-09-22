@@ -9,6 +9,10 @@ import (
 	"time"
 )
 
+type _Entity interface {
+	Is_Entity()
+}
+
 type FileFilterType struct {
 	And                  []*FileFilterType `json:"AND"`
 	Or                   []*FileFilterType `json:"OR"`
