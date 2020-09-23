@@ -15,14 +15,12 @@ type FileResultType struct {
 
 type File struct {
 	ID          string     `json:"id" gorm:"column:id;primary_key"`
-	Email       *string    `json:"email" gorm:"column:email"`
 	UID         *string    `json:"uid" gorm:"column:uid"`
 	Name        *string    `json:"name" gorm:"column:name"`
 	Size        *int       `json:"size" gorm:"column:size"`
 	ContentType *string    `json:"contentType" gorm:"column:contentType"`
 	URL         *string    `json:"url" gorm:"column:url"`
-	Reference   *string    `json:"reference" gorm:"column:reference;index:findref"`
-	ReferenceID *string    `json:"referenceID" gorm:"column:referenceID;index:findref"`
+	Reference   *string    `json:"reference" gorm:"column:reference;index:true"`
 	UpdatedAt   *time.Time `json:"updatedAt" gorm:"column:updatedAt"`
 	CreatedAt   time.Time  `json:"createdAt" gorm:"column:createdAt"`
 	UpdatedBy   *string    `json:"updatedBy" gorm:"column:updatedBy"`
@@ -33,14 +31,12 @@ func (m *File) Is_Entity() {}
 
 type FileChanges struct {
 	ID          string
-	Email       *string
 	UID         *string
 	Name        *string
 	Size        *int
 	ContentType *string
 	URL         *string
 	Reference   *string
-	ReferenceID *string
 	UpdatedAt   *time.Time
 	CreatedAt   time.Time
 	UpdatedBy   *string

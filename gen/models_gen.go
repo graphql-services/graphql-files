@@ -38,37 +38,6 @@ type FileFilterType struct {
 	IDMinIn              []string          `json:"idMin_in"`
 	IDMaxIn              []string          `json:"idMax_in"`
 	IDNull               *bool             `json:"id_null"`
-	Email                *string           `json:"email"`
-	EmailMin             *string           `json:"emailMin"`
-	EmailMax             *string           `json:"emailMax"`
-	EmailNe              *string           `json:"email_ne"`
-	EmailMinNe           *string           `json:"emailMin_ne"`
-	EmailMaxNe           *string           `json:"emailMax_ne"`
-	EmailGt              *string           `json:"email_gt"`
-	EmailMinGt           *string           `json:"emailMin_gt"`
-	EmailMaxGt           *string           `json:"emailMax_gt"`
-	EmailLt              *string           `json:"email_lt"`
-	EmailMinLt           *string           `json:"emailMin_lt"`
-	EmailMaxLt           *string           `json:"emailMax_lt"`
-	EmailGte             *string           `json:"email_gte"`
-	EmailMinGte          *string           `json:"emailMin_gte"`
-	EmailMaxGte          *string           `json:"emailMax_gte"`
-	EmailLte             *string           `json:"email_lte"`
-	EmailMinLte          *string           `json:"emailMin_lte"`
-	EmailMaxLte          *string           `json:"emailMax_lte"`
-	EmailIn              []string          `json:"email_in"`
-	EmailMinIn           []string          `json:"emailMin_in"`
-	EmailMaxIn           []string          `json:"emailMax_in"`
-	EmailLike            *string           `json:"email_like"`
-	EmailMinLike         *string           `json:"emailMin_like"`
-	EmailMaxLike         *string           `json:"emailMax_like"`
-	EmailPrefix          *string           `json:"email_prefix"`
-	EmailMinPrefix       *string           `json:"emailMin_prefix"`
-	EmailMaxPrefix       *string           `json:"emailMax_prefix"`
-	EmailSuffix          *string           `json:"email_suffix"`
-	EmailMinSuffix       *string           `json:"emailMin_suffix"`
-	EmailMaxSuffix       *string           `json:"emailMax_suffix"`
-	EmailNull            *bool             `json:"email_null"`
 	UID                  *string           `json:"uid"`
 	UIDMin               *string           `json:"uidMin"`
 	UIDMax               *string           `json:"uidMax"`
@@ -244,28 +213,6 @@ type FileFilterType struct {
 	ReferenceMinSuffix   *string           `json:"referenceMin_suffix"`
 	ReferenceMaxSuffix   *string           `json:"referenceMax_suffix"`
 	ReferenceNull        *bool             `json:"reference_null"`
-	ReferenceID          *string           `json:"referenceID"`
-	ReferenceIDMin       *string           `json:"referenceIDMin"`
-	ReferenceIDMax       *string           `json:"referenceIDMax"`
-	ReferenceIDNe        *string           `json:"referenceID_ne"`
-	ReferenceIDMinNe     *string           `json:"referenceIDMin_ne"`
-	ReferenceIDMaxNe     *string           `json:"referenceIDMax_ne"`
-	ReferenceIDGt        *string           `json:"referenceID_gt"`
-	ReferenceIDMinGt     *string           `json:"referenceIDMin_gt"`
-	ReferenceIDMaxGt     *string           `json:"referenceIDMax_gt"`
-	ReferenceIDLt        *string           `json:"referenceID_lt"`
-	ReferenceIDMinLt     *string           `json:"referenceIDMin_lt"`
-	ReferenceIDMaxLt     *string           `json:"referenceIDMax_lt"`
-	ReferenceIDGte       *string           `json:"referenceID_gte"`
-	ReferenceIDMinGte    *string           `json:"referenceIDMin_gte"`
-	ReferenceIDMaxGte    *string           `json:"referenceIDMax_gte"`
-	ReferenceIDLte       *string           `json:"referenceID_lte"`
-	ReferenceIDMinLte    *string           `json:"referenceIDMin_lte"`
-	ReferenceIDMaxLte    *string           `json:"referenceIDMax_lte"`
-	ReferenceIDIn        []string          `json:"referenceID_in"`
-	ReferenceIDMinIn     []string          `json:"referenceIDMin_in"`
-	ReferenceIDMaxIn     []string          `json:"referenceIDMax_in"`
-	ReferenceIDNull      *bool             `json:"referenceID_null"`
 	UpdatedAt            *time.Time        `json:"updatedAt"`
 	UpdatedAtMin         *time.Time        `json:"updatedAtMin"`
 	UpdatedAtMax         *time.Time        `json:"updatedAtMax"`
@@ -360,9 +307,6 @@ type FileSortType struct {
 	ID             *ObjectSortType `json:"id"`
 	IDMin          *ObjectSortType `json:"idMin"`
 	IDMax          *ObjectSortType `json:"idMax"`
-	Email          *ObjectSortType `json:"email"`
-	EmailMin       *ObjectSortType `json:"emailMin"`
-	EmailMax       *ObjectSortType `json:"emailMax"`
 	UID            *ObjectSortType `json:"uid"`
 	UIDMin         *ObjectSortType `json:"uidMin"`
 	UIDMax         *ObjectSortType `json:"uidMax"`
@@ -382,9 +326,6 @@ type FileSortType struct {
 	Reference      *ObjectSortType `json:"reference"`
 	ReferenceMin   *ObjectSortType `json:"referenceMin"`
 	ReferenceMax   *ObjectSortType `json:"referenceMax"`
-	ReferenceID    *ObjectSortType `json:"referenceID"`
-	ReferenceIDMin *ObjectSortType `json:"referenceIDMin"`
-	ReferenceIDMax *ObjectSortType `json:"referenceIDMax"`
 	UpdatedAt      *ObjectSortType `json:"updatedAt"`
 	UpdatedAtMin   *ObjectSortType `json:"updatedAtMin"`
 	UpdatedAtMax   *ObjectSortType `json:"updatedAtMax"`

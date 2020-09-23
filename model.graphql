@@ -1,11 +1,9 @@
 type File @entity @key(fields: "id") {
-  email: String @column
   uid: ID @column
   name: String @column
   size: Int @column
   contentType: String @column
   url: String @column
 
-  reference: String @column(index: "findref")
-  referenceID: ID @column(index: "findref")
+  reference: String @column(index: true)
 }

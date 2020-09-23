@@ -27,21 +27,6 @@ func (s FileSortType) ApplyWithAlias(ctx context.Context, dialect gorm.Dialect, 
 		*sorts = append(*sorts, sort)
 	}
 
-	if s.Email != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("email"), Direction: s.Email.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.EmailMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("email") + ")", Direction: s.EmailMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.EmailMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("email") + ")", Direction: s.EmailMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
 	if s.UID != nil {
 		sort := SortInfo{Field: aliasPrefix + dialect.Quote("uid"), Direction: s.UID.String()}
 		*sorts = append(*sorts, sort)
@@ -134,21 +119,6 @@ func (s FileSortType) ApplyWithAlias(ctx context.Context, dialect gorm.Dialect, 
 
 	if s.ReferenceMax != nil {
 		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("reference") + ")", Direction: s.ReferenceMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.ReferenceID != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("referenceID"), Direction: s.ReferenceID.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.ReferenceIDMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("referenceID") + ")", Direction: s.ReferenceIDMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.ReferenceIDMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("referenceID") + ")", Direction: s.ReferenceIDMax.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 

@@ -49,11 +49,9 @@ type ComplexityRoot struct {
 		ContentType func(childComplexity int) int
 		CreatedAt   func(childComplexity int) int
 		CreatedBy   func(childComplexity int) int
-		Email       func(childComplexity int) int
 		ID          func(childComplexity int) int
 		Name        func(childComplexity int) int
 		Reference   func(childComplexity int) int
-		ReferenceID func(childComplexity int) int
 		Size        func(childComplexity int) int
 		UID         func(childComplexity int) int
 		URL         func(childComplexity int) int
@@ -138,13 +136,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.File.CreatedBy(childComplexity), true
 
-	case "File.email":
-		if e.complexity.File.Email == nil {
-			break
-		}
-
-		return e.complexity.File.Email(childComplexity), true
-
 	case "File.id":
 		if e.complexity.File.ID == nil {
 			break
@@ -165,13 +156,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.File.Reference(childComplexity), true
-
-	case "File.referenceID":
-		if e.complexity.File.ReferenceID == nil {
-			break
-		}
-
-		return e.complexity.File.ReferenceID(childComplexity), true
 
 	case "File.size":
 		if e.complexity.File.Size == nil {
@@ -409,14 +393,12 @@ enum ObjectSortType {
 
 type File {
   id: ID!
-  email: String
   uid: ID
   name: String
   size: Int
   contentType: String
   url: String
   reference: String
-  referenceID: ID
   updatedAt: Time
   createdAt: Time!
   updatedBy: ID
@@ -425,34 +407,27 @@ type File {
 
 input FileCreateInput {
   id: ID
-  email: String
   uid: ID
   name: String
   size: Int
   contentType: String
   url: String
   reference: String
-  referenceID: ID
 }
 
 input FileUpdateInput {
-  email: String
   uid: ID
   name: String
   size: Int
   contentType: String
   url: String
   reference: String
-  referenceID: ID
 }
 
 input FileSortType {
   id: ObjectSortType
   idMin: ObjectSortType
   idMax: ObjectSortType
-  email: ObjectSortType
-  emailMin: ObjectSortType
-  emailMax: ObjectSortType
   uid: ObjectSortType
   uidMin: ObjectSortType
   uidMax: ObjectSortType
@@ -472,9 +447,6 @@ input FileSortType {
   reference: ObjectSortType
   referenceMin: ObjectSortType
   referenceMax: ObjectSortType
-  referenceID: ObjectSortType
-  referenceIDMin: ObjectSortType
-  referenceIDMax: ObjectSortType
   updatedAt: ObjectSortType
   updatedAtMin: ObjectSortType
   updatedAtMax: ObjectSortType
@@ -514,37 +486,6 @@ input FileFilterType {
   idMin_in: [ID!]
   idMax_in: [ID!]
   id_null: Boolean
-  email: String
-  emailMin: String
-  emailMax: String
-  email_ne: String
-  emailMin_ne: String
-  emailMax_ne: String
-  email_gt: String
-  emailMin_gt: String
-  emailMax_gt: String
-  email_lt: String
-  emailMin_lt: String
-  emailMax_lt: String
-  email_gte: String
-  emailMin_gte: String
-  emailMax_gte: String
-  email_lte: String
-  emailMin_lte: String
-  emailMax_lte: String
-  email_in: [String!]
-  emailMin_in: [String!]
-  emailMax_in: [String!]
-  email_like: String
-  emailMin_like: String
-  emailMax_like: String
-  email_prefix: String
-  emailMin_prefix: String
-  emailMax_prefix: String
-  email_suffix: String
-  emailMin_suffix: String
-  emailMax_suffix: String
-  email_null: Boolean
   uid: ID
   uidMin: ID
   uidMax: ID
@@ -720,28 +661,6 @@ input FileFilterType {
   referenceMin_suffix: String
   referenceMax_suffix: String
   reference_null: Boolean
-  referenceID: ID
-  referenceIDMin: ID
-  referenceIDMax: ID
-  referenceID_ne: ID
-  referenceIDMin_ne: ID
-  referenceIDMax_ne: ID
-  referenceID_gt: ID
-  referenceIDMin_gt: ID
-  referenceIDMax_gt: ID
-  referenceID_lt: ID
-  referenceIDMin_lt: ID
-  referenceIDMax_lt: ID
-  referenceID_gte: ID
-  referenceIDMin_gte: ID
-  referenceIDMax_gte: ID
-  referenceID_lte: ID
-  referenceIDMin_lte: ID
-  referenceIDMax_lte: ID
-  referenceID_in: [ID!]
-  referenceIDMin_in: [ID!]
-  referenceIDMax_in: [ID!]
-  referenceID_null: Boolean
   updatedAt: Time
   updatedAtMin: Time
   updatedAtMax: Time
@@ -1076,40 +995,6 @@ func (ec *executionContext) _File_id(ctx context.Context, field graphql.Collecte
 	return ec.marshalNID2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _File_email(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Email, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _File_uid(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() {
@@ -1312,40 +1197,6 @@ func (ec *executionContext) _File_reference(ctx context.Context, field graphql.C
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _File_referenceID(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ReferenceID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _File_updatedAt(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
@@ -3306,192 +3157,6 @@ func (ec *executionContext) unmarshalInputFileFilterType(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
-		case "email":
-			var err error
-			it.Email, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin":
-			var err error
-			it.EmailMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax":
-			var err error
-			it.EmailMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_ne":
-			var err error
-			it.EmailNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_ne":
-			var err error
-			it.EmailMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_ne":
-			var err error
-			it.EmailMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_gt":
-			var err error
-			it.EmailGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_gt":
-			var err error
-			it.EmailMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_gt":
-			var err error
-			it.EmailMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_lt":
-			var err error
-			it.EmailLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_lt":
-			var err error
-			it.EmailMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_lt":
-			var err error
-			it.EmailMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_gte":
-			var err error
-			it.EmailGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_gte":
-			var err error
-			it.EmailMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_gte":
-			var err error
-			it.EmailMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_lte":
-			var err error
-			it.EmailLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_lte":
-			var err error
-			it.EmailMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_lte":
-			var err error
-			it.EmailMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_in":
-			var err error
-			it.EmailIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_in":
-			var err error
-			it.EmailMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_in":
-			var err error
-			it.EmailMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_like":
-			var err error
-			it.EmailLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_like":
-			var err error
-			it.EmailMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_like":
-			var err error
-			it.EmailMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_prefix":
-			var err error
-			it.EmailPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_prefix":
-			var err error
-			it.EmailMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_prefix":
-			var err error
-			it.EmailMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_suffix":
-			var err error
-			it.EmailSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin_suffix":
-			var err error
-			it.EmailMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax_suffix":
-			var err error
-			it.EmailMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "email_null":
-			var err error
-			it.EmailNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "uid":
 			var err error
 			it.UID, err = ec.unmarshalOID2ᚖstring(ctx, v)
@@ -4542,138 +4207,6 @@ func (ec *executionContext) unmarshalInputFileFilterType(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
-		case "referenceID":
-			var err error
-			it.ReferenceID, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin":
-			var err error
-			it.ReferenceIDMin, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax":
-			var err error
-			it.ReferenceIDMax, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_ne":
-			var err error
-			it.ReferenceIDNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin_ne":
-			var err error
-			it.ReferenceIDMinNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax_ne":
-			var err error
-			it.ReferenceIDMaxNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_gt":
-			var err error
-			it.ReferenceIDGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin_gt":
-			var err error
-			it.ReferenceIDMinGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax_gt":
-			var err error
-			it.ReferenceIDMaxGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_lt":
-			var err error
-			it.ReferenceIDLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin_lt":
-			var err error
-			it.ReferenceIDMinLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax_lt":
-			var err error
-			it.ReferenceIDMaxLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_gte":
-			var err error
-			it.ReferenceIDGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin_gte":
-			var err error
-			it.ReferenceIDMinGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax_gte":
-			var err error
-			it.ReferenceIDMaxGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_lte":
-			var err error
-			it.ReferenceIDLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin_lte":
-			var err error
-			it.ReferenceIDMinLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax_lte":
-			var err error
-			it.ReferenceIDMaxLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_in":
-			var err error
-			it.ReferenceIDIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin_in":
-			var err error
-			it.ReferenceIDMinIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax_in":
-			var err error
-			it.ReferenceIDMaxIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID_null":
-			var err error
-			it.ReferenceIDNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "updatedAt":
 			var err error
 			it.UpdatedAt, err = ec.unmarshalOTime2ᚖtimeᚐTime(ctx, v)
@@ -5232,24 +4765,6 @@ func (ec *executionContext) unmarshalInputFileSortType(ctx context.Context, obj 
 			if err != nil {
 				return it, err
 			}
-		case "email":
-			var err error
-			it.Email, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMin":
-			var err error
-			it.EmailMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "emailMax":
-			var err error
-			it.EmailMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "uid":
 			var err error
 			it.UID, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
@@ -5361,24 +4876,6 @@ func (ec *executionContext) unmarshalInputFileSortType(ctx context.Context, obj 
 		case "referenceMax":
 			var err error
 			it.ReferenceMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceID":
-			var err error
-			it.ReferenceID, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMin":
-			var err error
-			it.ReferenceIDMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "referenceIDMax":
-			var err error
-			it.ReferenceIDMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5498,8 +4995,6 @@ func (ec *executionContext) _File(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "email":
-			out.Values[i] = ec._File_email(ctx, field, obj)
 		case "uid":
 			out.Values[i] = ec._File_uid(ctx, field, obj)
 		case "name":
@@ -5512,8 +5007,6 @@ func (ec *executionContext) _File(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._File_url(ctx, field, obj)
 		case "reference":
 			out.Values[i] = ec._File_reference(ctx, field, obj)
-		case "referenceID":
-			out.Values[i] = ec._File_referenceID(ctx, field, obj)
 		case "updatedAt":
 			out.Values[i] = ec._File_updatedAt(ctx, field, obj)
 		case "createdAt":

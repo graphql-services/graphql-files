@@ -50,14 +50,6 @@ func (qf *FileQueryFilter) applyQueryWithFields(dialect gorm.Dialect, fields []*
 		fieldsMap[f.Name] = append(fieldsMap[f.Name], f)
 	}
 
-	if _, ok := fieldsMap["email"]; ok {
-
-		column := dialect.Quote(alias) + "." + dialect.Quote("email")
-
-		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
-		*values = append(*values, query+"%", "% "+query+"%")
-	}
-
 	if _, ok := fieldsMap["name"]; ok {
 
 		column := dialect.Quote(alias) + "." + dialect.Quote("name")

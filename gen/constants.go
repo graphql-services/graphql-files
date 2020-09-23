@@ -30,14 +30,12 @@ enum ObjectSortType {
 
 type File @key(fields: "id") {
   id: ID!
-  email: String
   uid: ID
   name: String
   size: Int
   contentType: String
   url: String
   reference: String
-  referenceID: ID
   updatedAt: Time
   createdAt: Time!
   updatedBy: ID
@@ -46,34 +44,27 @@ type File @key(fields: "id") {
 
 input FileCreateInput {
   id: ID
-  email: String
   uid: ID
   name: String
   size: Int
   contentType: String
   url: String
   reference: String
-  referenceID: ID
 }
 
 input FileUpdateInput {
-  email: String
   uid: ID
   name: String
   size: Int
   contentType: String
   url: String
   reference: String
-  referenceID: ID
 }
 
 input FileSortType {
   id: ObjectSortType
   idMin: ObjectSortType
   idMax: ObjectSortType
-  email: ObjectSortType
-  emailMin: ObjectSortType
-  emailMax: ObjectSortType
   uid: ObjectSortType
   uidMin: ObjectSortType
   uidMax: ObjectSortType
@@ -93,9 +84,6 @@ input FileSortType {
   reference: ObjectSortType
   referenceMin: ObjectSortType
   referenceMax: ObjectSortType
-  referenceID: ObjectSortType
-  referenceIDMin: ObjectSortType
-  referenceIDMax: ObjectSortType
   updatedAt: ObjectSortType
   updatedAtMin: ObjectSortType
   updatedAtMax: ObjectSortType
@@ -135,37 +123,6 @@ input FileFilterType {
   idMin_in: [ID!]
   idMax_in: [ID!]
   id_null: Boolean
-  email: String
-  emailMin: String
-  emailMax: String
-  email_ne: String
-  emailMin_ne: String
-  emailMax_ne: String
-  email_gt: String
-  emailMin_gt: String
-  emailMax_gt: String
-  email_lt: String
-  emailMin_lt: String
-  emailMax_lt: String
-  email_gte: String
-  emailMin_gte: String
-  emailMax_gte: String
-  email_lte: String
-  emailMin_lte: String
-  emailMax_lte: String
-  email_in: [String!]
-  emailMin_in: [String!]
-  emailMax_in: [String!]
-  email_like: String
-  emailMin_like: String
-  emailMax_like: String
-  email_prefix: String
-  emailMin_prefix: String
-  emailMax_prefix: String
-  email_suffix: String
-  emailMin_suffix: String
-  emailMax_suffix: String
-  email_null: Boolean
   uid: ID
   uidMin: ID
   uidMax: ID
@@ -341,28 +298,6 @@ input FileFilterType {
   referenceMin_suffix: String
   referenceMax_suffix: String
   reference_null: Boolean
-  referenceID: ID
-  referenceIDMin: ID
-  referenceIDMax: ID
-  referenceID_ne: ID
-  referenceIDMin_ne: ID
-  referenceIDMax_ne: ID
-  referenceID_gt: ID
-  referenceIDMin_gt: ID
-  referenceIDMax_gt: ID
-  referenceID_lt: ID
-  referenceIDMin_lt: ID
-  referenceIDMax_lt: ID
-  referenceID_gte: ID
-  referenceIDMin_gte: ID
-  referenceIDMax_gte: ID
-  referenceID_lte: ID
-  referenceIDMin_lte: ID
-  referenceIDMax_lte: ID
-  referenceID_in: [ID!]
-  referenceIDMin_in: [ID!]
-  referenceIDMax_in: [ID!]
-  referenceID_null: Boolean
   updatedAt: Time
   updatedAtMin: Time
   updatedAtMax: Time

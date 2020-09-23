@@ -90,12 +90,6 @@ func CreateFileHandler(ctx context.Context, r *GeneratedResolver, input map[stri
 		event.AddNewValue("id", changes.ID)
 	}
 
-	if _, ok := input["email"]; ok && (item.Email != changes.Email) && (item.Email == nil || changes.Email == nil || *item.Email != *changes.Email) {
-		item.Email = changes.Email
-
-		event.AddNewValue("email", changes.Email)
-	}
-
 	if _, ok := input["uid"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
 		item.UID = changes.UID
 
@@ -130,12 +124,6 @@ func CreateFileHandler(ctx context.Context, r *GeneratedResolver, input map[stri
 		item.Reference = changes.Reference
 
 		event.AddNewValue("reference", changes.Reference)
-	}
-
-	if _, ok := input["referenceID"]; ok && (item.ReferenceID != changes.ReferenceID) && (item.ReferenceID == nil || changes.ReferenceID == nil || *item.ReferenceID != *changes.ReferenceID) {
-		item.ReferenceID = changes.ReferenceID
-
-		event.AddNewValue("referenceID", changes.ReferenceID)
 	}
 
 	err = tx.Create(item).Error
@@ -187,12 +175,6 @@ func UpdateFileHandler(ctx context.Context, r *GeneratedResolver, id string, inp
 
 	item.UpdatedBy = principalID
 
-	if _, ok := input["email"]; ok && (item.Email != changes.Email) && (item.Email == nil || changes.Email == nil || *item.Email != *changes.Email) {
-		event.AddOldValue("email", item.Email)
-		event.AddNewValue("email", changes.Email)
-		item.Email = changes.Email
-	}
-
 	if _, ok := input["uid"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
 		event.AddOldValue("uid", item.UID)
 		event.AddNewValue("uid", changes.UID)
@@ -227,12 +209,6 @@ func UpdateFileHandler(ctx context.Context, r *GeneratedResolver, id string, inp
 		event.AddOldValue("reference", item.Reference)
 		event.AddNewValue("reference", changes.Reference)
 		item.Reference = changes.Reference
-	}
-
-	if _, ok := input["referenceID"]; ok && (item.ReferenceID != changes.ReferenceID) && (item.ReferenceID == nil || changes.ReferenceID == nil || *item.ReferenceID != *changes.ReferenceID) {
-		event.AddOldValue("referenceID", item.ReferenceID)
-		event.AddNewValue("referenceID", changes.ReferenceID)
-		item.ReferenceID = changes.ReferenceID
 	}
 
 	err = tx.Save(item).Error
