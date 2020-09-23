@@ -19,7 +19,6 @@ type File struct {
 	Name        *string    `json:"name" gorm:"column:name"`
 	Size        *int       `json:"size" gorm:"column:size"`
 	ContentType *string    `json:"contentType" gorm:"column:contentType"`
-	URL         *string    `json:"url" gorm:"column:url"`
 	Reference   *string    `json:"reference" gorm:"column:reference;index:true"`
 	UpdatedAt   *time.Time `json:"updatedAt" gorm:"column:updatedAt"`
 	CreatedAt   time.Time  `json:"createdAt" gorm:"column:createdAt"`
@@ -35,7 +34,6 @@ type FileChanges struct {
 	Name        *string
 	Size        *int
 	ContentType *string
-	URL         *string
 	Reference   *string
 	UpdatedAt   *time.Time
 	CreatedAt   time.Time

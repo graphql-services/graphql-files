@@ -54,7 +54,6 @@ type ComplexityRoot struct {
 		Reference   func(childComplexity int) int
 		Size        func(childComplexity int) int
 		UID         func(childComplexity int) int
-		URL         func(childComplexity int) int
 		UpdatedAt   func(childComplexity int) int
 		UpdatedBy   func(childComplexity int) int
 	}
@@ -170,13 +169,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.File.UID(childComplexity), true
-
-	case "File.url":
-		if e.complexity.File.URL == nil {
-			break
-		}
-
-		return e.complexity.File.URL(childComplexity), true
 
 	case "File.updatedAt":
 		if e.complexity.File.UpdatedAt == nil {
@@ -397,7 +389,6 @@ type File {
   name: String
   size: Int
   contentType: String
-  url: String
   reference: String
   updatedAt: Time
   createdAt: Time!
@@ -411,7 +402,6 @@ input FileCreateInput {
   name: String
   size: Int
   contentType: String
-  url: String
   reference: String
 }
 
@@ -420,7 +410,6 @@ input FileUpdateInput {
   name: String
   size: Int
   contentType: String
-  url: String
   reference: String
 }
 
@@ -441,9 +430,6 @@ input FileSortType {
   contentType: ObjectSortType
   contentTypeMin: ObjectSortType
   contentTypeMax: ObjectSortType
-  url: ObjectSortType
-  urlMin: ObjectSortType
-  urlMax: ObjectSortType
   reference: ObjectSortType
   referenceMin: ObjectSortType
   referenceMax: ObjectSortType
@@ -599,37 +585,6 @@ input FileFilterType {
   contentTypeMin_suffix: String
   contentTypeMax_suffix: String
   contentType_null: Boolean
-  url: String
-  urlMin: String
-  urlMax: String
-  url_ne: String
-  urlMin_ne: String
-  urlMax_ne: String
-  url_gt: String
-  urlMin_gt: String
-  urlMax_gt: String
-  url_lt: String
-  urlMin_lt: String
-  urlMax_lt: String
-  url_gte: String
-  urlMin_gte: String
-  urlMax_gte: String
-  url_lte: String
-  urlMin_lte: String
-  urlMax_lte: String
-  url_in: [String!]
-  urlMin_in: [String!]
-  urlMax_in: [String!]
-  url_like: String
-  urlMin_like: String
-  urlMax_like: String
-  url_prefix: String
-  urlMin_prefix: String
-  urlMax_prefix: String
-  url_suffix: String
-  urlMin_suffix: String
-  urlMax_suffix: String
-  url_null: Boolean
   reference: String
   referenceMin: String
   referenceMax: String
@@ -1117,40 +1072,6 @@ func (ec *executionContext) _File_contentType(ctx context.Context, field graphql
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.ContentType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _File_url(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.URL, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3835,192 +3756,6 @@ func (ec *executionContext) unmarshalInputFileFilterType(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
-		case "url":
-			var err error
-			it.URL, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin":
-			var err error
-			it.URLMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax":
-			var err error
-			it.URLMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_ne":
-			var err error
-			it.URLNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_ne":
-			var err error
-			it.URLMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_ne":
-			var err error
-			it.URLMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_gt":
-			var err error
-			it.URLGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_gt":
-			var err error
-			it.URLMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_gt":
-			var err error
-			it.URLMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_lt":
-			var err error
-			it.URLLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_lt":
-			var err error
-			it.URLMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_lt":
-			var err error
-			it.URLMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_gte":
-			var err error
-			it.URLGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_gte":
-			var err error
-			it.URLMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_gte":
-			var err error
-			it.URLMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_lte":
-			var err error
-			it.URLLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_lte":
-			var err error
-			it.URLMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_lte":
-			var err error
-			it.URLMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_in":
-			var err error
-			it.URLIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_in":
-			var err error
-			it.URLMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_in":
-			var err error
-			it.URLMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_like":
-			var err error
-			it.URLLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_like":
-			var err error
-			it.URLMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_like":
-			var err error
-			it.URLMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_prefix":
-			var err error
-			it.URLPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_prefix":
-			var err error
-			it.URLMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_prefix":
-			var err error
-			it.URLMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_suffix":
-			var err error
-			it.URLSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin_suffix":
-			var err error
-			it.URLMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax_suffix":
-			var err error
-			it.URLMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "url_null":
-			var err error
-			it.URLNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "reference":
 			var err error
 			it.Reference, err = ec.unmarshalOString2ᚖstring(ctx, v)
@@ -4843,24 +4578,6 @@ func (ec *executionContext) unmarshalInputFileSortType(ctx context.Context, obj 
 			if err != nil {
 				return it, err
 			}
-		case "url":
-			var err error
-			it.URL, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMin":
-			var err error
-			it.URLMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "urlMax":
-			var err error
-			it.URLMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "reference":
 			var err error
 			it.Reference, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
@@ -5003,8 +4720,6 @@ func (ec *executionContext) _File(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._File_size(ctx, field, obj)
 		case "contentType":
 			out.Values[i] = ec._File_contentType(ctx, field, obj)
-		case "url":
-			out.Values[i] = ec._File_url(ctx, field, obj)
 		case "reference":
 			out.Values[i] = ec._File_reference(ctx, field, obj)
 		case "updatedAt":

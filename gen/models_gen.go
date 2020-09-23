@@ -151,37 +151,6 @@ type FileFilterType struct {
 	ContentTypeMinSuffix *string           `json:"contentTypeMin_suffix"`
 	ContentTypeMaxSuffix *string           `json:"contentTypeMax_suffix"`
 	ContentTypeNull      *bool             `json:"contentType_null"`
-	URL                  *string           `json:"url"`
-	URLMin               *string           `json:"urlMin"`
-	URLMax               *string           `json:"urlMax"`
-	URLNe                *string           `json:"url_ne"`
-	URLMinNe             *string           `json:"urlMin_ne"`
-	URLMaxNe             *string           `json:"urlMax_ne"`
-	URLGt                *string           `json:"url_gt"`
-	URLMinGt             *string           `json:"urlMin_gt"`
-	URLMaxGt             *string           `json:"urlMax_gt"`
-	URLLt                *string           `json:"url_lt"`
-	URLMinLt             *string           `json:"urlMin_lt"`
-	URLMaxLt             *string           `json:"urlMax_lt"`
-	URLGte               *string           `json:"url_gte"`
-	URLMinGte            *string           `json:"urlMin_gte"`
-	URLMaxGte            *string           `json:"urlMax_gte"`
-	URLLte               *string           `json:"url_lte"`
-	URLMinLte            *string           `json:"urlMin_lte"`
-	URLMaxLte            *string           `json:"urlMax_lte"`
-	URLIn                []string          `json:"url_in"`
-	URLMinIn             []string          `json:"urlMin_in"`
-	URLMaxIn             []string          `json:"urlMax_in"`
-	URLLike              *string           `json:"url_like"`
-	URLMinLike           *string           `json:"urlMin_like"`
-	URLMaxLike           *string           `json:"urlMax_like"`
-	URLPrefix            *string           `json:"url_prefix"`
-	URLMinPrefix         *string           `json:"urlMin_prefix"`
-	URLMaxPrefix         *string           `json:"urlMax_prefix"`
-	URLSuffix            *string           `json:"url_suffix"`
-	URLMinSuffix         *string           `json:"urlMin_suffix"`
-	URLMaxSuffix         *string           `json:"urlMax_suffix"`
-	URLNull              *bool             `json:"url_null"`
 	Reference            *string           `json:"reference"`
 	ReferenceMin         *string           `json:"referenceMin"`
 	ReferenceMax         *string           `json:"referenceMax"`
@@ -320,9 +289,6 @@ type FileSortType struct {
 	ContentType    *ObjectSortType `json:"contentType"`
 	ContentTypeMin *ObjectSortType `json:"contentTypeMin"`
 	ContentTypeMax *ObjectSortType `json:"contentTypeMax"`
-	URL            *ObjectSortType `json:"url"`
-	URLMin         *ObjectSortType `json:"urlMin"`
-	URLMax         *ObjectSortType `json:"urlMax"`
 	Reference      *ObjectSortType `json:"reference"`
 	ReferenceMin   *ObjectSortType `json:"referenceMin"`
 	ReferenceMax   *ObjectSortType `json:"referenceMax"`

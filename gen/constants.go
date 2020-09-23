@@ -34,7 +34,6 @@ type File @key(fields: "id") {
   name: String
   size: Int
   contentType: String
-  url: String
   reference: String
   updatedAt: Time
   createdAt: Time!
@@ -48,7 +47,6 @@ input FileCreateInput {
   name: String
   size: Int
   contentType: String
-  url: String
   reference: String
 }
 
@@ -57,7 +55,6 @@ input FileUpdateInput {
   name: String
   size: Int
   contentType: String
-  url: String
   reference: String
 }
 
@@ -78,9 +75,6 @@ input FileSortType {
   contentType: ObjectSortType
   contentTypeMin: ObjectSortType
   contentTypeMax: ObjectSortType
-  url: ObjectSortType
-  urlMin: ObjectSortType
-  urlMax: ObjectSortType
   reference: ObjectSortType
   referenceMin: ObjectSortType
   referenceMax: ObjectSortType
@@ -236,37 +230,6 @@ input FileFilterType {
   contentTypeMin_suffix: String
   contentTypeMax_suffix: String
   contentType_null: Boolean
-  url: String
-  urlMin: String
-  urlMax: String
-  url_ne: String
-  urlMin_ne: String
-  urlMax_ne: String
-  url_gt: String
-  urlMin_gt: String
-  urlMax_gt: String
-  url_lt: String
-  urlMin_lt: String
-  urlMax_lt: String
-  url_gte: String
-  urlMin_gte: String
-  urlMax_gte: String
-  url_lte: String
-  urlMin_lte: String
-  urlMax_lte: String
-  url_in: [String!]
-  urlMin_in: [String!]
-  urlMax_in: [String!]
-  url_like: String
-  urlMin_like: String
-  urlMax_like: String
-  url_prefix: String
-  urlMin_prefix: String
-  urlMax_prefix: String
-  url_suffix: String
-  urlMin_suffix: String
-  urlMax_suffix: String
-  url_null: Boolean
   reference: String
   referenceMin: String
   referenceMax: String

@@ -3,7 +3,6 @@ type File @entity @key(fields: "id") {
   name: String @column
   size: Int @column
   contentType: String @column
-  url: String @column
 
   reference: String @column(index: true)
 }

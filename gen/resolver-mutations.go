@@ -114,12 +114,6 @@ func CreateFileHandler(ctx context.Context, r *GeneratedResolver, input map[stri
 		event.AddNewValue("contentType", changes.ContentType)
 	}
 
-	if _, ok := input["url"]; ok && (item.URL != changes.URL) && (item.URL == nil || changes.URL == nil || *item.URL != *changes.URL) {
-		item.URL = changes.URL
-
-		event.AddNewValue("url", changes.URL)
-	}
-
 	if _, ok := input["reference"]; ok && (item.Reference != changes.Reference) && (item.Reference == nil || changes.Reference == nil || *item.Reference != *changes.Reference) {
 		item.Reference = changes.Reference
 
@@ -197,12 +191,6 @@ func UpdateFileHandler(ctx context.Context, r *GeneratedResolver, id string, inp
 		event.AddOldValue("contentType", item.ContentType)
 		event.AddNewValue("contentType", changes.ContentType)
 		item.ContentType = changes.ContentType
-	}
-
-	if _, ok := input["url"]; ok && (item.URL != changes.URL) && (item.URL == nil || changes.URL == nil || *item.URL != *changes.URL) {
-		event.AddOldValue("url", item.URL)
-		event.AddNewValue("url", changes.URL)
-		item.URL = changes.URL
 	}
 
 	if _, ok := input["reference"]; ok && (item.Reference != changes.Reference) && (item.Reference == nil || changes.Reference == nil || *item.Reference != *changes.Reference) {

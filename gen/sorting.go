@@ -92,21 +92,6 @@ func (s FileSortType) ApplyWithAlias(ctx context.Context, dialect gorm.Dialect, 
 		*sorts = append(*sorts, sort)
 	}
 
-	if s.URL != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("url"), Direction: s.URL.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.URLMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("url") + ")", Direction: s.URLMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.URLMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("url") + ")", Direction: s.URLMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
 	if s.Reference != nil {
 		sort := SortInfo{Field: aliasPrefix + dialect.Quote("reference"), Direction: s.Reference.String()}
 		*sorts = append(*sorts, sort)
