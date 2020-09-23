@@ -16,13 +16,13 @@ type FileResultType struct {
 type File struct {
 	ID          string     `json:"id" gorm:"column:id;primary_key"`
 	Email       *string    `json:"email" gorm:"column:email"`
-	UID         *string    `json:"UID" gorm:"column:UID"`
-	Size        *int       `json:"Size" gorm:"column:Size"`
-	ContentType *string    `json:"ContentType" gorm:"column:ContentType"`
-	URL         *string    `json:"URL" gorm:"column:URL"`
-	Name        *string    `json:"Name" gorm:"column:Name"`
-	Reference   *string    `json:"Reference" gorm:"column:Reference;index:findref"`
-	ReferenceID *string    `json:"ReferenceID" gorm:"column:ReferenceID;index:findref"`
+	UID         *string    `json:"uid" gorm:"column:uid"`
+	Name        *string    `json:"name" gorm:"column:name"`
+	Size        *int       `json:"size" gorm:"column:size"`
+	ContentType *string    `json:"contentType" gorm:"column:contentType"`
+	URL         *string    `json:"url" gorm:"column:url"`
+	Reference   *string    `json:"reference" gorm:"column:reference;index:findref"`
+	ReferenceID *string    `json:"referenceID" gorm:"column:referenceID;index:findref"`
 	UpdatedAt   *time.Time `json:"updatedAt" gorm:"column:updatedAt"`
 	CreatedAt   time.Time  `json:"createdAt" gorm:"column:createdAt"`
 	UpdatedBy   *string    `json:"updatedBy" gorm:"column:updatedBy"`
@@ -35,10 +35,10 @@ type FileChanges struct {
 	ID          string
 	Email       *string
 	UID         *string
+	Name        *string
 	Size        *int
 	ContentType *string
 	URL         *string
-	Name        *string
 	Reference   *string
 	ReferenceID *string
 	UpdatedAt   *time.Time

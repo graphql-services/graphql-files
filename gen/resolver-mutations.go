@@ -96,46 +96,46 @@ func CreateFileHandler(ctx context.Context, r *GeneratedResolver, input map[stri
 		event.AddNewValue("email", changes.Email)
 	}
 
-	if _, ok := input["UID"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
+	if _, ok := input["uid"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
 		item.UID = changes.UID
 
-		event.AddNewValue("UID", changes.UID)
+		event.AddNewValue("uid", changes.UID)
 	}
 
-	if _, ok := input["Size"]; ok && (item.Size != changes.Size) && (item.Size == nil || changes.Size == nil || *item.Size != *changes.Size) {
-		item.Size = changes.Size
-
-		event.AddNewValue("Size", changes.Size)
-	}
-
-	if _, ok := input["ContentType"]; ok && (item.ContentType != changes.ContentType) && (item.ContentType == nil || changes.ContentType == nil || *item.ContentType != *changes.ContentType) {
-		item.ContentType = changes.ContentType
-
-		event.AddNewValue("ContentType", changes.ContentType)
-	}
-
-	if _, ok := input["URL"]; ok && (item.URL != changes.URL) && (item.URL == nil || changes.URL == nil || *item.URL != *changes.URL) {
-		item.URL = changes.URL
-
-		event.AddNewValue("URL", changes.URL)
-	}
-
-	if _, ok := input["Name"]; ok && (item.Name != changes.Name) && (item.Name == nil || changes.Name == nil || *item.Name != *changes.Name) {
+	if _, ok := input["name"]; ok && (item.Name != changes.Name) && (item.Name == nil || changes.Name == nil || *item.Name != *changes.Name) {
 		item.Name = changes.Name
 
-		event.AddNewValue("Name", changes.Name)
+		event.AddNewValue("name", changes.Name)
 	}
 
-	if _, ok := input["Reference"]; ok && (item.Reference != changes.Reference) && (item.Reference == nil || changes.Reference == nil || *item.Reference != *changes.Reference) {
+	if _, ok := input["size"]; ok && (item.Size != changes.Size) && (item.Size == nil || changes.Size == nil || *item.Size != *changes.Size) {
+		item.Size = changes.Size
+
+		event.AddNewValue("size", changes.Size)
+	}
+
+	if _, ok := input["contentType"]; ok && (item.ContentType != changes.ContentType) && (item.ContentType == nil || changes.ContentType == nil || *item.ContentType != *changes.ContentType) {
+		item.ContentType = changes.ContentType
+
+		event.AddNewValue("contentType", changes.ContentType)
+	}
+
+	if _, ok := input["url"]; ok && (item.URL != changes.URL) && (item.URL == nil || changes.URL == nil || *item.URL != *changes.URL) {
+		item.URL = changes.URL
+
+		event.AddNewValue("url", changes.URL)
+	}
+
+	if _, ok := input["reference"]; ok && (item.Reference != changes.Reference) && (item.Reference == nil || changes.Reference == nil || *item.Reference != *changes.Reference) {
 		item.Reference = changes.Reference
 
-		event.AddNewValue("Reference", changes.Reference)
+		event.AddNewValue("reference", changes.Reference)
 	}
 
-	if _, ok := input["ReferenceID"]; ok && (item.ReferenceID != changes.ReferenceID) && (item.ReferenceID == nil || changes.ReferenceID == nil || *item.ReferenceID != *changes.ReferenceID) {
+	if _, ok := input["referenceID"]; ok && (item.ReferenceID != changes.ReferenceID) && (item.ReferenceID == nil || changes.ReferenceID == nil || *item.ReferenceID != *changes.ReferenceID) {
 		item.ReferenceID = changes.ReferenceID
 
-		event.AddNewValue("ReferenceID", changes.ReferenceID)
+		event.AddNewValue("referenceID", changes.ReferenceID)
 	}
 
 	err = tx.Create(item).Error
@@ -193,45 +193,45 @@ func UpdateFileHandler(ctx context.Context, r *GeneratedResolver, id string, inp
 		item.Email = changes.Email
 	}
 
-	if _, ok := input["UID"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
-		event.AddOldValue("UID", item.UID)
-		event.AddNewValue("UID", changes.UID)
+	if _, ok := input["uid"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
+		event.AddOldValue("uid", item.UID)
+		event.AddNewValue("uid", changes.UID)
 		item.UID = changes.UID
 	}
 
-	if _, ok := input["Size"]; ok && (item.Size != changes.Size) && (item.Size == nil || changes.Size == nil || *item.Size != *changes.Size) {
-		event.AddOldValue("Size", item.Size)
-		event.AddNewValue("Size", changes.Size)
-		item.Size = changes.Size
-	}
-
-	if _, ok := input["ContentType"]; ok && (item.ContentType != changes.ContentType) && (item.ContentType == nil || changes.ContentType == nil || *item.ContentType != *changes.ContentType) {
-		event.AddOldValue("ContentType", item.ContentType)
-		event.AddNewValue("ContentType", changes.ContentType)
-		item.ContentType = changes.ContentType
-	}
-
-	if _, ok := input["URL"]; ok && (item.URL != changes.URL) && (item.URL == nil || changes.URL == nil || *item.URL != *changes.URL) {
-		event.AddOldValue("URL", item.URL)
-		event.AddNewValue("URL", changes.URL)
-		item.URL = changes.URL
-	}
-
-	if _, ok := input["Name"]; ok && (item.Name != changes.Name) && (item.Name == nil || changes.Name == nil || *item.Name != *changes.Name) {
-		event.AddOldValue("Name", item.Name)
-		event.AddNewValue("Name", changes.Name)
+	if _, ok := input["name"]; ok && (item.Name != changes.Name) && (item.Name == nil || changes.Name == nil || *item.Name != *changes.Name) {
+		event.AddOldValue("name", item.Name)
+		event.AddNewValue("name", changes.Name)
 		item.Name = changes.Name
 	}
 
-	if _, ok := input["Reference"]; ok && (item.Reference != changes.Reference) && (item.Reference == nil || changes.Reference == nil || *item.Reference != *changes.Reference) {
-		event.AddOldValue("Reference", item.Reference)
-		event.AddNewValue("Reference", changes.Reference)
+	if _, ok := input["size"]; ok && (item.Size != changes.Size) && (item.Size == nil || changes.Size == nil || *item.Size != *changes.Size) {
+		event.AddOldValue("size", item.Size)
+		event.AddNewValue("size", changes.Size)
+		item.Size = changes.Size
+	}
+
+	if _, ok := input["contentType"]; ok && (item.ContentType != changes.ContentType) && (item.ContentType == nil || changes.ContentType == nil || *item.ContentType != *changes.ContentType) {
+		event.AddOldValue("contentType", item.ContentType)
+		event.AddNewValue("contentType", changes.ContentType)
+		item.ContentType = changes.ContentType
+	}
+
+	if _, ok := input["url"]; ok && (item.URL != changes.URL) && (item.URL == nil || changes.URL == nil || *item.URL != *changes.URL) {
+		event.AddOldValue("url", item.URL)
+		event.AddNewValue("url", changes.URL)
+		item.URL = changes.URL
+	}
+
+	if _, ok := input["reference"]; ok && (item.Reference != changes.Reference) && (item.Reference == nil || changes.Reference == nil || *item.Reference != *changes.Reference) {
+		event.AddOldValue("reference", item.Reference)
+		event.AddNewValue("reference", changes.Reference)
 		item.Reference = changes.Reference
 	}
 
-	if _, ok := input["ReferenceID"]; ok && (item.ReferenceID != changes.ReferenceID) && (item.ReferenceID == nil || changes.ReferenceID == nil || *item.ReferenceID != *changes.ReferenceID) {
-		event.AddOldValue("ReferenceID", item.ReferenceID)
-		event.AddNewValue("ReferenceID", changes.ReferenceID)
+	if _, ok := input["referenceID"]; ok && (item.ReferenceID != changes.ReferenceID) && (item.ReferenceID == nil || changes.ReferenceID == nil || *item.ReferenceID != *changes.ReferenceID) {
+		event.AddOldValue("referenceID", item.ReferenceID)
+		event.AddNewValue("referenceID", changes.ReferenceID)
 		item.ReferenceID = changes.ReferenceID
 	}
 

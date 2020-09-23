@@ -58,45 +58,45 @@ func (qf *FileQueryFilter) applyQueryWithFields(dialect gorm.Dialect, fields []*
 		*values = append(*values, query+"%", "% "+query+"%")
 	}
 
-	if _, ok := fieldsMap["Size"]; ok {
+	if _, ok := fieldsMap["name"]; ok {
+
+		column := dialect.Quote(alias) + "." + dialect.Quote("name")
+
+		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
+		*values = append(*values, query+"%", "% "+query+"%")
+	}
+
+	if _, ok := fieldsMap["size"]; ok {
 
 		cast := "TEXT"
 		if dialect.GetName() == "mysql" {
 			cast = "CHAR"
 		}
-		column := fmt.Sprintf("CAST(%s"+dialect.Quote("Size")+" AS %s)", dialect.Quote(alias)+".", cast)
+		column := fmt.Sprintf("CAST(%s"+dialect.Quote("size")+" AS %s)", dialect.Quote(alias)+".", cast)
 
 		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
 		*values = append(*values, query+"%", "% "+query+"%")
 	}
 
-	if _, ok := fieldsMap["ContentType"]; ok {
+	if _, ok := fieldsMap["contentType"]; ok {
 
-		column := dialect.Quote(alias) + "." + dialect.Quote("ContentType")
-
-		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
-		*values = append(*values, query+"%", "% "+query+"%")
-	}
-
-	if _, ok := fieldsMap["URL"]; ok {
-
-		column := dialect.Quote(alias) + "." + dialect.Quote("URL")
+		column := dialect.Quote(alias) + "." + dialect.Quote("contentType")
 
 		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
 		*values = append(*values, query+"%", "% "+query+"%")
 	}
 
-	if _, ok := fieldsMap["Name"]; ok {
+	if _, ok := fieldsMap["url"]; ok {
 
-		column := dialect.Quote(alias) + "." + dialect.Quote("Name")
+		column := dialect.Quote(alias) + "." + dialect.Quote("url")
 
 		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
 		*values = append(*values, query+"%", "% "+query+"%")
 	}
 
-	if _, ok := fieldsMap["Reference"]; ok {
+	if _, ok := fieldsMap["reference"]; ok {
 
-		column := dialect.Quote(alias) + "." + dialect.Quote("Reference")
+		column := dialect.Quote(alias) + "." + dialect.Quote("reference")
 
 		*ors = append(*ors, fmt.Sprintf("%[1]s LIKE ? OR %[1]s LIKE ?", column))
 		*values = append(*values, query+"%", "% "+query+"%")

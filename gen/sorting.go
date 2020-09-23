@@ -43,112 +43,112 @@ func (s FileSortType) ApplyWithAlias(ctx context.Context, dialect gorm.Dialect, 
 	}
 
 	if s.UID != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("UID"), Direction: s.UID.String()}
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("uid"), Direction: s.UID.String()}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.UIDMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("UID") + ")", Direction: s.UIDMin.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("uid") + ")", Direction: s.UIDMin.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.UIDMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("UID") + ")", Direction: s.UIDMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.Size != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("Size"), Direction: s.Size.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.SizeMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("Size") + ")", Direction: s.SizeMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.SizeMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("Size") + ")", Direction: s.SizeMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.SizeAvg != nil {
-		sort := SortInfo{Field: "Avg(" + aliasPrefix + dialect.Quote("Size") + ")", Direction: s.SizeAvg.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.ContentType != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("ContentType"), Direction: s.ContentType.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.ContentTypeMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("ContentType") + ")", Direction: s.ContentTypeMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.ContentTypeMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("ContentType") + ")", Direction: s.ContentTypeMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.URL != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("URL"), Direction: s.URL.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.URLMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("URL") + ")", Direction: s.URLMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.URLMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("URL") + ")", Direction: s.URLMax.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("uid") + ")", Direction: s.UIDMax.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.Name != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("Name"), Direction: s.Name.String()}
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("name"), Direction: s.Name.String()}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.NameMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("Name") + ")", Direction: s.NameMin.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("name") + ")", Direction: s.NameMin.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.NameMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("Name") + ")", Direction: s.NameMax.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("name") + ")", Direction: s.NameMax.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.Size != nil {
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("size"), Direction: s.Size.String()}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.SizeMin != nil {
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("size") + ")", Direction: s.SizeMin.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.SizeMax != nil {
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("size") + ")", Direction: s.SizeMax.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.SizeAvg != nil {
+		sort := SortInfo{Field: "Avg(" + aliasPrefix + dialect.Quote("size") + ")", Direction: s.SizeAvg.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.ContentType != nil {
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("contentType"), Direction: s.ContentType.String()}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.ContentTypeMin != nil {
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("contentType") + ")", Direction: s.ContentTypeMin.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.ContentTypeMax != nil {
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("contentType") + ")", Direction: s.ContentTypeMax.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.URL != nil {
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("url"), Direction: s.URL.String()}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.URLMin != nil {
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("url") + ")", Direction: s.URLMin.String(), IsAggregation: true}
+		*sorts = append(*sorts, sort)
+	}
+
+	if s.URLMax != nil {
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("url") + ")", Direction: s.URLMax.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.Reference != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("Reference"), Direction: s.Reference.String()}
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("reference"), Direction: s.Reference.String()}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.ReferenceMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("Reference") + ")", Direction: s.ReferenceMin.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("reference") + ")", Direction: s.ReferenceMin.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.ReferenceMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("Reference") + ")", Direction: s.ReferenceMax.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("reference") + ")", Direction: s.ReferenceMax.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.ReferenceID != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("ReferenceID"), Direction: s.ReferenceID.String()}
+		sort := SortInfo{Field: aliasPrefix + dialect.Quote("referenceID"), Direction: s.ReferenceID.String()}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.ReferenceIDMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("ReferenceID") + ")", Direction: s.ReferenceIDMin.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("referenceID") + ")", Direction: s.ReferenceIDMin.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 
 	if s.ReferenceIDMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("ReferenceID") + ")", Direction: s.ReferenceIDMax.String(), IsAggregation: true}
+		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("referenceID") + ")", Direction: s.ReferenceIDMax.String(), IsAggregation: true}
 		*sorts = append(*sorts, sort)
 	}
 

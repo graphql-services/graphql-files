@@ -117,7 +117,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "File.ContentType":
+	case "File.contentType":
 		if e.complexity.File.ContentType == nil {
 			break
 		}
@@ -152,42 +152,42 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.File.ID(childComplexity), true
 
-	case "File.Name":
+	case "File.name":
 		if e.complexity.File.Name == nil {
 			break
 		}
 
 		return e.complexity.File.Name(childComplexity), true
 
-	case "File.Reference":
+	case "File.reference":
 		if e.complexity.File.Reference == nil {
 			break
 		}
 
 		return e.complexity.File.Reference(childComplexity), true
 
-	case "File.ReferenceID":
+	case "File.referenceID":
 		if e.complexity.File.ReferenceID == nil {
 			break
 		}
 
 		return e.complexity.File.ReferenceID(childComplexity), true
 
-	case "File.Size":
+	case "File.size":
 		if e.complexity.File.Size == nil {
 			break
 		}
 
 		return e.complexity.File.Size(childComplexity), true
 
-	case "File.UID":
+	case "File.uid":
 		if e.complexity.File.UID == nil {
 			break
 		}
 
 		return e.complexity.File.UID(childComplexity), true
 
-	case "File.URL":
+	case "File.url":
 		if e.complexity.File.URL == nil {
 			break
 		}
@@ -410,13 +410,13 @@ enum ObjectSortType {
 type File {
   id: ID!
   email: String
-  UID: ID
-  Size: Int
-  ContentType: String
-  URL: String
-  Name: String
-  Reference: String
-  ReferenceID: ID
+  uid: ID
+  name: String
+  size: Int
+  contentType: String
+  url: String
+  reference: String
+  referenceID: ID
   updatedAt: Time
   createdAt: Time!
   updatedBy: ID
@@ -426,24 +426,24 @@ type File {
 input FileCreateInput {
   id: ID
   email: String
-  UID: ID
-  Size: Int
-  ContentType: String
-  URL: String
-  Name: String
-  Reference: String
-  ReferenceID: ID
+  uid: ID
+  name: String
+  size: Int
+  contentType: String
+  url: String
+  reference: String
+  referenceID: ID
 }
 
 input FileUpdateInput {
   email: String
-  UID: ID
-  Size: Int
-  ContentType: String
-  URL: String
-  Name: String
-  Reference: String
-  ReferenceID: ID
+  uid: ID
+  name: String
+  size: Int
+  contentType: String
+  url: String
+  reference: String
+  referenceID: ID
 }
 
 input FileSortType {
@@ -453,28 +453,28 @@ input FileSortType {
   email: ObjectSortType
   emailMin: ObjectSortType
   emailMax: ObjectSortType
-  UID: ObjectSortType
-  UIDMin: ObjectSortType
-  UIDMax: ObjectSortType
-  Size: ObjectSortType
-  SizeMin: ObjectSortType
-  SizeMax: ObjectSortType
-  SizeAvg: ObjectSortType
-  ContentType: ObjectSortType
-  ContentTypeMin: ObjectSortType
-  ContentTypeMax: ObjectSortType
-  URL: ObjectSortType
-  URLMin: ObjectSortType
-  URLMax: ObjectSortType
-  Name: ObjectSortType
-  NameMin: ObjectSortType
-  NameMax: ObjectSortType
-  Reference: ObjectSortType
-  ReferenceMin: ObjectSortType
-  ReferenceMax: ObjectSortType
-  ReferenceID: ObjectSortType
-  ReferenceIDMin: ObjectSortType
-  ReferenceIDMax: ObjectSortType
+  uid: ObjectSortType
+  uidMin: ObjectSortType
+  uidMax: ObjectSortType
+  name: ObjectSortType
+  nameMin: ObjectSortType
+  nameMax: ObjectSortType
+  size: ObjectSortType
+  sizeMin: ObjectSortType
+  sizeMax: ObjectSortType
+  sizeAvg: ObjectSortType
+  contentType: ObjectSortType
+  contentTypeMin: ObjectSortType
+  contentTypeMax: ObjectSortType
+  url: ObjectSortType
+  urlMin: ObjectSortType
+  urlMax: ObjectSortType
+  reference: ObjectSortType
+  referenceMin: ObjectSortType
+  referenceMax: ObjectSortType
+  referenceID: ObjectSortType
+  referenceIDMin: ObjectSortType
+  referenceIDMax: ObjectSortType
   updatedAt: ObjectSortType
   updatedAtMin: ObjectSortType
   updatedAtMax: ObjectSortType
@@ -545,203 +545,203 @@ input FileFilterType {
   emailMin_suffix: String
   emailMax_suffix: String
   email_null: Boolean
-  UID: ID
-  UIDMin: ID
-  UIDMax: ID
-  UID_ne: ID
-  UIDMin_ne: ID
-  UIDMax_ne: ID
-  UID_gt: ID
-  UIDMin_gt: ID
-  UIDMax_gt: ID
-  UID_lt: ID
-  UIDMin_lt: ID
-  UIDMax_lt: ID
-  UID_gte: ID
-  UIDMin_gte: ID
-  UIDMax_gte: ID
-  UID_lte: ID
-  UIDMin_lte: ID
-  UIDMax_lte: ID
-  UID_in: [ID!]
-  UIDMin_in: [ID!]
-  UIDMax_in: [ID!]
-  UID_null: Boolean
-  Size: Int
-  SizeMin: Int
-  SizeMax: Int
-  SizeAvg: Int
-  Size_ne: Int
-  SizeMin_ne: Int
-  SizeMax_ne: Int
-  SizeAvg_ne: Int
-  Size_gt: Int
-  SizeMin_gt: Int
-  SizeMax_gt: Int
-  SizeAvg_gt: Int
-  Size_lt: Int
-  SizeMin_lt: Int
-  SizeMax_lt: Int
-  SizeAvg_lt: Int
-  Size_gte: Int
-  SizeMin_gte: Int
-  SizeMax_gte: Int
-  SizeAvg_gte: Int
-  Size_lte: Int
-  SizeMin_lte: Int
-  SizeMax_lte: Int
-  SizeAvg_lte: Int
-  Size_in: [Int!]
-  SizeMin_in: [Int!]
-  SizeMax_in: [Int!]
-  SizeAvg_in: [Int!]
-  Size_null: Boolean
-  ContentType: String
-  ContentTypeMin: String
-  ContentTypeMax: String
-  ContentType_ne: String
-  ContentTypeMin_ne: String
-  ContentTypeMax_ne: String
-  ContentType_gt: String
-  ContentTypeMin_gt: String
-  ContentTypeMax_gt: String
-  ContentType_lt: String
-  ContentTypeMin_lt: String
-  ContentTypeMax_lt: String
-  ContentType_gte: String
-  ContentTypeMin_gte: String
-  ContentTypeMax_gte: String
-  ContentType_lte: String
-  ContentTypeMin_lte: String
-  ContentTypeMax_lte: String
-  ContentType_in: [String!]
-  ContentTypeMin_in: [String!]
-  ContentTypeMax_in: [String!]
-  ContentType_like: String
-  ContentTypeMin_like: String
-  ContentTypeMax_like: String
-  ContentType_prefix: String
-  ContentTypeMin_prefix: String
-  ContentTypeMax_prefix: String
-  ContentType_suffix: String
-  ContentTypeMin_suffix: String
-  ContentTypeMax_suffix: String
-  ContentType_null: Boolean
-  URL: String
-  URLMin: String
-  URLMax: String
-  URL_ne: String
-  URLMin_ne: String
-  URLMax_ne: String
-  URL_gt: String
-  URLMin_gt: String
-  URLMax_gt: String
-  URL_lt: String
-  URLMin_lt: String
-  URLMax_lt: String
-  URL_gte: String
-  URLMin_gte: String
-  URLMax_gte: String
-  URL_lte: String
-  URLMin_lte: String
-  URLMax_lte: String
-  URL_in: [String!]
-  URLMin_in: [String!]
-  URLMax_in: [String!]
-  URL_like: String
-  URLMin_like: String
-  URLMax_like: String
-  URL_prefix: String
-  URLMin_prefix: String
-  URLMax_prefix: String
-  URL_suffix: String
-  URLMin_suffix: String
-  URLMax_suffix: String
-  URL_null: Boolean
-  Name: String
-  NameMin: String
-  NameMax: String
-  Name_ne: String
-  NameMin_ne: String
-  NameMax_ne: String
-  Name_gt: String
-  NameMin_gt: String
-  NameMax_gt: String
-  Name_lt: String
-  NameMin_lt: String
-  NameMax_lt: String
-  Name_gte: String
-  NameMin_gte: String
-  NameMax_gte: String
-  Name_lte: String
-  NameMin_lte: String
-  NameMax_lte: String
-  Name_in: [String!]
-  NameMin_in: [String!]
-  NameMax_in: [String!]
-  Name_like: String
-  NameMin_like: String
-  NameMax_like: String
-  Name_prefix: String
-  NameMin_prefix: String
-  NameMax_prefix: String
-  Name_suffix: String
-  NameMin_suffix: String
-  NameMax_suffix: String
-  Name_null: Boolean
-  Reference: String
-  ReferenceMin: String
-  ReferenceMax: String
-  Reference_ne: String
-  ReferenceMin_ne: String
-  ReferenceMax_ne: String
-  Reference_gt: String
-  ReferenceMin_gt: String
-  ReferenceMax_gt: String
-  Reference_lt: String
-  ReferenceMin_lt: String
-  ReferenceMax_lt: String
-  Reference_gte: String
-  ReferenceMin_gte: String
-  ReferenceMax_gte: String
-  Reference_lte: String
-  ReferenceMin_lte: String
-  ReferenceMax_lte: String
-  Reference_in: [String!]
-  ReferenceMin_in: [String!]
-  ReferenceMax_in: [String!]
-  Reference_like: String
-  ReferenceMin_like: String
-  ReferenceMax_like: String
-  Reference_prefix: String
-  ReferenceMin_prefix: String
-  ReferenceMax_prefix: String
-  Reference_suffix: String
-  ReferenceMin_suffix: String
-  ReferenceMax_suffix: String
-  Reference_null: Boolean
-  ReferenceID: ID
-  ReferenceIDMin: ID
-  ReferenceIDMax: ID
-  ReferenceID_ne: ID
-  ReferenceIDMin_ne: ID
-  ReferenceIDMax_ne: ID
-  ReferenceID_gt: ID
-  ReferenceIDMin_gt: ID
-  ReferenceIDMax_gt: ID
-  ReferenceID_lt: ID
-  ReferenceIDMin_lt: ID
-  ReferenceIDMax_lt: ID
-  ReferenceID_gte: ID
-  ReferenceIDMin_gte: ID
-  ReferenceIDMax_gte: ID
-  ReferenceID_lte: ID
-  ReferenceIDMin_lte: ID
-  ReferenceIDMax_lte: ID
-  ReferenceID_in: [ID!]
-  ReferenceIDMin_in: [ID!]
-  ReferenceIDMax_in: [ID!]
-  ReferenceID_null: Boolean
+  uid: ID
+  uidMin: ID
+  uidMax: ID
+  uid_ne: ID
+  uidMin_ne: ID
+  uidMax_ne: ID
+  uid_gt: ID
+  uidMin_gt: ID
+  uidMax_gt: ID
+  uid_lt: ID
+  uidMin_lt: ID
+  uidMax_lt: ID
+  uid_gte: ID
+  uidMin_gte: ID
+  uidMax_gte: ID
+  uid_lte: ID
+  uidMin_lte: ID
+  uidMax_lte: ID
+  uid_in: [ID!]
+  uidMin_in: [ID!]
+  uidMax_in: [ID!]
+  uid_null: Boolean
+  name: String
+  nameMin: String
+  nameMax: String
+  name_ne: String
+  nameMin_ne: String
+  nameMax_ne: String
+  name_gt: String
+  nameMin_gt: String
+  nameMax_gt: String
+  name_lt: String
+  nameMin_lt: String
+  nameMax_lt: String
+  name_gte: String
+  nameMin_gte: String
+  nameMax_gte: String
+  name_lte: String
+  nameMin_lte: String
+  nameMax_lte: String
+  name_in: [String!]
+  nameMin_in: [String!]
+  nameMax_in: [String!]
+  name_like: String
+  nameMin_like: String
+  nameMax_like: String
+  name_prefix: String
+  nameMin_prefix: String
+  nameMax_prefix: String
+  name_suffix: String
+  nameMin_suffix: String
+  nameMax_suffix: String
+  name_null: Boolean
+  size: Int
+  sizeMin: Int
+  sizeMax: Int
+  sizeAvg: Int
+  size_ne: Int
+  sizeMin_ne: Int
+  sizeMax_ne: Int
+  sizeAvg_ne: Int
+  size_gt: Int
+  sizeMin_gt: Int
+  sizeMax_gt: Int
+  sizeAvg_gt: Int
+  size_lt: Int
+  sizeMin_lt: Int
+  sizeMax_lt: Int
+  sizeAvg_lt: Int
+  size_gte: Int
+  sizeMin_gte: Int
+  sizeMax_gte: Int
+  sizeAvg_gte: Int
+  size_lte: Int
+  sizeMin_lte: Int
+  sizeMax_lte: Int
+  sizeAvg_lte: Int
+  size_in: [Int!]
+  sizeMin_in: [Int!]
+  sizeMax_in: [Int!]
+  sizeAvg_in: [Int!]
+  size_null: Boolean
+  contentType: String
+  contentTypeMin: String
+  contentTypeMax: String
+  contentType_ne: String
+  contentTypeMin_ne: String
+  contentTypeMax_ne: String
+  contentType_gt: String
+  contentTypeMin_gt: String
+  contentTypeMax_gt: String
+  contentType_lt: String
+  contentTypeMin_lt: String
+  contentTypeMax_lt: String
+  contentType_gte: String
+  contentTypeMin_gte: String
+  contentTypeMax_gte: String
+  contentType_lte: String
+  contentTypeMin_lte: String
+  contentTypeMax_lte: String
+  contentType_in: [String!]
+  contentTypeMin_in: [String!]
+  contentTypeMax_in: [String!]
+  contentType_like: String
+  contentTypeMin_like: String
+  contentTypeMax_like: String
+  contentType_prefix: String
+  contentTypeMin_prefix: String
+  contentTypeMax_prefix: String
+  contentType_suffix: String
+  contentTypeMin_suffix: String
+  contentTypeMax_suffix: String
+  contentType_null: Boolean
+  url: String
+  urlMin: String
+  urlMax: String
+  url_ne: String
+  urlMin_ne: String
+  urlMax_ne: String
+  url_gt: String
+  urlMin_gt: String
+  urlMax_gt: String
+  url_lt: String
+  urlMin_lt: String
+  urlMax_lt: String
+  url_gte: String
+  urlMin_gte: String
+  urlMax_gte: String
+  url_lte: String
+  urlMin_lte: String
+  urlMax_lte: String
+  url_in: [String!]
+  urlMin_in: [String!]
+  urlMax_in: [String!]
+  url_like: String
+  urlMin_like: String
+  urlMax_like: String
+  url_prefix: String
+  urlMin_prefix: String
+  urlMax_prefix: String
+  url_suffix: String
+  urlMin_suffix: String
+  urlMax_suffix: String
+  url_null: Boolean
+  reference: String
+  referenceMin: String
+  referenceMax: String
+  reference_ne: String
+  referenceMin_ne: String
+  referenceMax_ne: String
+  reference_gt: String
+  referenceMin_gt: String
+  referenceMax_gt: String
+  reference_lt: String
+  referenceMin_lt: String
+  referenceMax_lt: String
+  reference_gte: String
+  referenceMin_gte: String
+  referenceMax_gte: String
+  reference_lte: String
+  referenceMin_lte: String
+  referenceMax_lte: String
+  reference_in: [String!]
+  referenceMin_in: [String!]
+  referenceMax_in: [String!]
+  reference_like: String
+  referenceMin_like: String
+  referenceMax_like: String
+  reference_prefix: String
+  referenceMin_prefix: String
+  referenceMax_prefix: String
+  reference_suffix: String
+  referenceMin_suffix: String
+  referenceMax_suffix: String
+  reference_null: Boolean
+  referenceID: ID
+  referenceIDMin: ID
+  referenceIDMax: ID
+  referenceID_ne: ID
+  referenceIDMin_ne: ID
+  referenceIDMax_ne: ID
+  referenceID_gt: ID
+  referenceIDMin_gt: ID
+  referenceIDMax_gt: ID
+  referenceID_lt: ID
+  referenceIDMin_lt: ID
+  referenceIDMax_lt: ID
+  referenceID_gte: ID
+  referenceIDMin_gte: ID
+  referenceIDMax_gte: ID
+  referenceID_lte: ID
+  referenceIDMin_lte: ID
+  referenceIDMax_lte: ID
+  referenceID_in: [ID!]
+  referenceIDMin_in: [ID!]
+  referenceIDMax_in: [ID!]
+  referenceID_null: Boolean
   updatedAt: Time
   updatedAtMin: Time
   updatedAtMax: Time
@@ -1110,7 +1110,7 @@ func (ec *executionContext) _File_email(ctx context.Context, field graphql.Colle
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _File_UID(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+func (ec *executionContext) _File_uid(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() {
 		if r := recover(); r != nil {
@@ -1144,109 +1144,7 @@ func (ec *executionContext) _File_UID(ctx context.Context, field graphql.Collect
 	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _File_Size(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Size, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _File_ContentType(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ContentType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _File_URL(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.URL, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _File_Name(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+func (ec *executionContext) _File_name(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() {
 		if r := recover(); r != nil {
@@ -1280,7 +1178,109 @@ func (ec *executionContext) _File_Name(ctx context.Context, field graphql.Collec
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _File_Reference(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+func (ec *executionContext) _File_size(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+	ctx = ec.Tracer.StartFieldExecution(ctx, field)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+		ec.Tracer.EndFieldExecution(ctx)
+	}()
+	rctx := &graphql.ResolverContext{
+		Object:   "File",
+		Field:    field,
+		Args:     nil,
+		IsMethod: false,
+	}
+	ctx = graphql.WithResolverContext(ctx, rctx)
+	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Size, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	rctx.Result = res
+	ctx = ec.Tracer.StartFieldChildExecution(ctx)
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _File_contentType(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+	ctx = ec.Tracer.StartFieldExecution(ctx, field)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+		ec.Tracer.EndFieldExecution(ctx)
+	}()
+	rctx := &graphql.ResolverContext{
+		Object:   "File",
+		Field:    field,
+		Args:     nil,
+		IsMethod: false,
+	}
+	ctx = graphql.WithResolverContext(ctx, rctx)
+	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ContentType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	rctx.Result = res
+	ctx = ec.Tracer.StartFieldChildExecution(ctx)
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _File_url(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+	ctx = ec.Tracer.StartFieldExecution(ctx, field)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+		ec.Tracer.EndFieldExecution(ctx)
+	}()
+	rctx := &graphql.ResolverContext{
+		Object:   "File",
+		Field:    field,
+		Args:     nil,
+		IsMethod: false,
+	}
+	ctx = graphql.WithResolverContext(ctx, rctx)
+	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.URL, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	rctx.Result = res
+	ctx = ec.Tracer.StartFieldChildExecution(ctx)
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _File_reference(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() {
 		if r := recover(); r != nil {
@@ -1314,7 +1314,7 @@ func (ec *executionContext) _File_Reference(ctx context.Context, field graphql.C
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _File_ReferenceID(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
+func (ec *executionContext) _File_referenceID(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
 	ctx = ec.Tracer.StartFieldExecution(ctx, field)
 	defer func() {
 		if r := recover(); r != nil {
@@ -3492,1183 +3492,1183 @@ func (ec *executionContext) unmarshalInputFileFilterType(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
-		case "UID":
+		case "uid":
 			var err error
 			it.UID, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin":
+		case "uidMin":
 			var err error
 			it.UIDMin, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax":
+		case "uidMax":
 			var err error
 			it.UIDMax, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_ne":
+		case "uid_ne":
 			var err error
 			it.UIDNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin_ne":
+		case "uidMin_ne":
 			var err error
 			it.UIDMinNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax_ne":
+		case "uidMax_ne":
 			var err error
 			it.UIDMaxNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_gt":
+		case "uid_gt":
 			var err error
 			it.UIDGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin_gt":
+		case "uidMin_gt":
 			var err error
 			it.UIDMinGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax_gt":
+		case "uidMax_gt":
 			var err error
 			it.UIDMaxGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_lt":
+		case "uid_lt":
 			var err error
 			it.UIDLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin_lt":
+		case "uidMin_lt":
 			var err error
 			it.UIDMinLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax_lt":
+		case "uidMax_lt":
 			var err error
 			it.UIDMaxLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_gte":
+		case "uid_gte":
 			var err error
 			it.UIDGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin_gte":
+		case "uidMin_gte":
 			var err error
 			it.UIDMinGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax_gte":
+		case "uidMax_gte":
 			var err error
 			it.UIDMaxGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_lte":
+		case "uid_lte":
 			var err error
 			it.UIDLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin_lte":
+		case "uidMin_lte":
 			var err error
 			it.UIDMinLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax_lte":
+		case "uidMax_lte":
 			var err error
 			it.UIDMaxLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_in":
+		case "uid_in":
 			var err error
 			it.UIDIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin_in":
+		case "uidMin_in":
 			var err error
 			it.UIDMinIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax_in":
+		case "uidMax_in":
 			var err error
 			it.UIDMaxIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UID_null":
+		case "uid_null":
 			var err error
 			it.UIDNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Size":
-			var err error
-			it.Size, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin":
-			var err error
-			it.SizeMin, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax":
-			var err error
-			it.SizeMax, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg":
-			var err error
-			it.SizeAvg, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_ne":
-			var err error
-			it.SizeNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin_ne":
-			var err error
-			it.SizeMinNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax_ne":
-			var err error
-			it.SizeMaxNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg_ne":
-			var err error
-			it.SizeAvgNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_gt":
-			var err error
-			it.SizeGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin_gt":
-			var err error
-			it.SizeMinGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax_gt":
-			var err error
-			it.SizeMaxGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg_gt":
-			var err error
-			it.SizeAvgGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_lt":
-			var err error
-			it.SizeLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin_lt":
-			var err error
-			it.SizeMinLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax_lt":
-			var err error
-			it.SizeMaxLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg_lt":
-			var err error
-			it.SizeAvgLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_gte":
-			var err error
-			it.SizeGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin_gte":
-			var err error
-			it.SizeMinGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax_gte":
-			var err error
-			it.SizeMaxGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg_gte":
-			var err error
-			it.SizeAvgGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_lte":
-			var err error
-			it.SizeLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin_lte":
-			var err error
-			it.SizeMinLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax_lte":
-			var err error
-			it.SizeMaxLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg_lte":
-			var err error
-			it.SizeAvgLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_in":
-			var err error
-			it.SizeIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin_in":
-			var err error
-			it.SizeMinIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax_in":
-			var err error
-			it.SizeMaxIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg_in":
-			var err error
-			it.SizeAvgIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Size_null":
-			var err error
-			it.SizeNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType":
-			var err error
-			it.ContentType, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin":
-			var err error
-			it.ContentTypeMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax":
-			var err error
-			it.ContentTypeMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_ne":
-			var err error
-			it.ContentTypeNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_ne":
-			var err error
-			it.ContentTypeMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_ne":
-			var err error
-			it.ContentTypeMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_gt":
-			var err error
-			it.ContentTypeGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_gt":
-			var err error
-			it.ContentTypeMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_gt":
-			var err error
-			it.ContentTypeMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_lt":
-			var err error
-			it.ContentTypeLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_lt":
-			var err error
-			it.ContentTypeMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_lt":
-			var err error
-			it.ContentTypeMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_gte":
-			var err error
-			it.ContentTypeGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_gte":
-			var err error
-			it.ContentTypeMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_gte":
-			var err error
-			it.ContentTypeMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_lte":
-			var err error
-			it.ContentTypeLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_lte":
-			var err error
-			it.ContentTypeMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_lte":
-			var err error
-			it.ContentTypeMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_in":
-			var err error
-			it.ContentTypeIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_in":
-			var err error
-			it.ContentTypeMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_in":
-			var err error
-			it.ContentTypeMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_like":
-			var err error
-			it.ContentTypeLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_like":
-			var err error
-			it.ContentTypeMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_like":
-			var err error
-			it.ContentTypeMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_prefix":
-			var err error
-			it.ContentTypePrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_prefix":
-			var err error
-			it.ContentTypeMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_prefix":
-			var err error
-			it.ContentTypeMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_suffix":
-			var err error
-			it.ContentTypeSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin_suffix":
-			var err error
-			it.ContentTypeMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax_suffix":
-			var err error
-			it.ContentTypeMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType_null":
-			var err error
-			it.ContentTypeNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL":
-			var err error
-			it.URL, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin":
-			var err error
-			it.URLMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax":
-			var err error
-			it.URLMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_ne":
-			var err error
-			it.URLNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_ne":
-			var err error
-			it.URLMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_ne":
-			var err error
-			it.URLMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_gt":
-			var err error
-			it.URLGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_gt":
-			var err error
-			it.URLMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_gt":
-			var err error
-			it.URLMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_lt":
-			var err error
-			it.URLLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_lt":
-			var err error
-			it.URLMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_lt":
-			var err error
-			it.URLMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_gte":
-			var err error
-			it.URLGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_gte":
-			var err error
-			it.URLMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_gte":
-			var err error
-			it.URLMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_lte":
-			var err error
-			it.URLLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_lte":
-			var err error
-			it.URLMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_lte":
-			var err error
-			it.URLMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_in":
-			var err error
-			it.URLIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_in":
-			var err error
-			it.URLMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_in":
-			var err error
-			it.URLMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_like":
-			var err error
-			it.URLLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_like":
-			var err error
-			it.URLMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_like":
-			var err error
-			it.URLMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_prefix":
-			var err error
-			it.URLPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_prefix":
-			var err error
-			it.URLMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_prefix":
-			var err error
-			it.URLMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_suffix":
-			var err error
-			it.URLSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin_suffix":
-			var err error
-			it.URLMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax_suffix":
-			var err error
-			it.URLMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL_null":
-			var err error
-			it.URLNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Name":
+		case "name":
 			var err error
 			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin":
+		case "nameMin":
 			var err error
 			it.NameMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax":
+		case "nameMax":
 			var err error
 			it.NameMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_ne":
+		case "name_ne":
 			var err error
 			it.NameNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_ne":
+		case "nameMin_ne":
 			var err error
 			it.NameMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_ne":
+		case "nameMax_ne":
 			var err error
 			it.NameMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_gt":
+		case "name_gt":
 			var err error
 			it.NameGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_gt":
+		case "nameMin_gt":
 			var err error
 			it.NameMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_gt":
+		case "nameMax_gt":
 			var err error
 			it.NameMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_lt":
+		case "name_lt":
 			var err error
 			it.NameLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_lt":
+		case "nameMin_lt":
 			var err error
 			it.NameMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_lt":
+		case "nameMax_lt":
 			var err error
 			it.NameMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_gte":
+		case "name_gte":
 			var err error
 			it.NameGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_gte":
+		case "nameMin_gte":
 			var err error
 			it.NameMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_gte":
+		case "nameMax_gte":
 			var err error
 			it.NameMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_lte":
+		case "name_lte":
 			var err error
 			it.NameLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_lte":
+		case "nameMin_lte":
 			var err error
 			it.NameMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_lte":
+		case "nameMax_lte":
 			var err error
 			it.NameMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_in":
+		case "name_in":
 			var err error
 			it.NameIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_in":
+		case "nameMin_in":
 			var err error
 			it.NameMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_in":
+		case "nameMax_in":
 			var err error
 			it.NameMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_like":
+		case "name_like":
 			var err error
 			it.NameLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_like":
+		case "nameMin_like":
 			var err error
 			it.NameMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_like":
+		case "nameMax_like":
 			var err error
 			it.NameMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_prefix":
+		case "name_prefix":
 			var err error
 			it.NamePrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_prefix":
+		case "nameMin_prefix":
 			var err error
 			it.NameMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_prefix":
+		case "nameMax_prefix":
 			var err error
 			it.NameMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_suffix":
+		case "name_suffix":
 			var err error
 			it.NameSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin_suffix":
+		case "nameMin_suffix":
 			var err error
 			it.NameMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax_suffix":
+		case "nameMax_suffix":
 			var err error
 			it.NameMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Name_null":
+		case "name_null":
 			var err error
 			it.NameNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference":
+		case "size":
+			var err error
+			it.Size, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin":
+			var err error
+			it.SizeMin, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax":
+			var err error
+			it.SizeMax, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg":
+			var err error
+			it.SizeAvg, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_ne":
+			var err error
+			it.SizeNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin_ne":
+			var err error
+			it.SizeMinNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax_ne":
+			var err error
+			it.SizeMaxNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg_ne":
+			var err error
+			it.SizeAvgNe, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_gt":
+			var err error
+			it.SizeGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin_gt":
+			var err error
+			it.SizeMinGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax_gt":
+			var err error
+			it.SizeMaxGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg_gt":
+			var err error
+			it.SizeAvgGt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_lt":
+			var err error
+			it.SizeLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin_lt":
+			var err error
+			it.SizeMinLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax_lt":
+			var err error
+			it.SizeMaxLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg_lt":
+			var err error
+			it.SizeAvgLt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_gte":
+			var err error
+			it.SizeGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin_gte":
+			var err error
+			it.SizeMinGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax_gte":
+			var err error
+			it.SizeMaxGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg_gte":
+			var err error
+			it.SizeAvgGte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_lte":
+			var err error
+			it.SizeLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin_lte":
+			var err error
+			it.SizeMinLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax_lte":
+			var err error
+			it.SizeMaxLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg_lte":
+			var err error
+			it.SizeAvgLte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_in":
+			var err error
+			it.SizeIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin_in":
+			var err error
+			it.SizeMinIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax_in":
+			var err error
+			it.SizeMaxIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg_in":
+			var err error
+			it.SizeAvgIn, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "size_null":
+			var err error
+			it.SizeNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType":
+			var err error
+			it.ContentType, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin":
+			var err error
+			it.ContentTypeMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax":
+			var err error
+			it.ContentTypeMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_ne":
+			var err error
+			it.ContentTypeNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_ne":
+			var err error
+			it.ContentTypeMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_ne":
+			var err error
+			it.ContentTypeMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_gt":
+			var err error
+			it.ContentTypeGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_gt":
+			var err error
+			it.ContentTypeMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_gt":
+			var err error
+			it.ContentTypeMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_lt":
+			var err error
+			it.ContentTypeLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_lt":
+			var err error
+			it.ContentTypeMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_lt":
+			var err error
+			it.ContentTypeMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_gte":
+			var err error
+			it.ContentTypeGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_gte":
+			var err error
+			it.ContentTypeMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_gte":
+			var err error
+			it.ContentTypeMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_lte":
+			var err error
+			it.ContentTypeLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_lte":
+			var err error
+			it.ContentTypeMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_lte":
+			var err error
+			it.ContentTypeMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_in":
+			var err error
+			it.ContentTypeIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_in":
+			var err error
+			it.ContentTypeMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_in":
+			var err error
+			it.ContentTypeMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_like":
+			var err error
+			it.ContentTypeLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_like":
+			var err error
+			it.ContentTypeMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_like":
+			var err error
+			it.ContentTypeMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_prefix":
+			var err error
+			it.ContentTypePrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_prefix":
+			var err error
+			it.ContentTypeMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_prefix":
+			var err error
+			it.ContentTypeMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_suffix":
+			var err error
+			it.ContentTypeSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin_suffix":
+			var err error
+			it.ContentTypeMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax_suffix":
+			var err error
+			it.ContentTypeMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType_null":
+			var err error
+			it.ContentTypeNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url":
+			var err error
+			it.URL, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin":
+			var err error
+			it.URLMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax":
+			var err error
+			it.URLMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_ne":
+			var err error
+			it.URLNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_ne":
+			var err error
+			it.URLMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_ne":
+			var err error
+			it.URLMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_gt":
+			var err error
+			it.URLGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_gt":
+			var err error
+			it.URLMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_gt":
+			var err error
+			it.URLMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_lt":
+			var err error
+			it.URLLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_lt":
+			var err error
+			it.URLMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_lt":
+			var err error
+			it.URLMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_gte":
+			var err error
+			it.URLGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_gte":
+			var err error
+			it.URLMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_gte":
+			var err error
+			it.URLMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_lte":
+			var err error
+			it.URLLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_lte":
+			var err error
+			it.URLMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_lte":
+			var err error
+			it.URLMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_in":
+			var err error
+			it.URLIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_in":
+			var err error
+			it.URLMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_in":
+			var err error
+			it.URLMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_like":
+			var err error
+			it.URLLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_like":
+			var err error
+			it.URLMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_like":
+			var err error
+			it.URLMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_prefix":
+			var err error
+			it.URLPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_prefix":
+			var err error
+			it.URLMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_prefix":
+			var err error
+			it.URLMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_suffix":
+			var err error
+			it.URLSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin_suffix":
+			var err error
+			it.URLMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax_suffix":
+			var err error
+			it.URLMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url_null":
+			var err error
+			it.URLNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reference":
 			var err error
 			it.Reference, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin":
+		case "referenceMin":
 			var err error
 			it.ReferenceMin, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax":
+		case "referenceMax":
 			var err error
 			it.ReferenceMax, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_ne":
+		case "reference_ne":
 			var err error
 			it.ReferenceNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_ne":
+		case "referenceMin_ne":
 			var err error
 			it.ReferenceMinNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_ne":
+		case "referenceMax_ne":
 			var err error
 			it.ReferenceMaxNe, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_gt":
+		case "reference_gt":
 			var err error
 			it.ReferenceGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_gt":
+		case "referenceMin_gt":
 			var err error
 			it.ReferenceMinGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_gt":
+		case "referenceMax_gt":
 			var err error
 			it.ReferenceMaxGt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_lt":
+		case "reference_lt":
 			var err error
 			it.ReferenceLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_lt":
+		case "referenceMin_lt":
 			var err error
 			it.ReferenceMinLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_lt":
+		case "referenceMax_lt":
 			var err error
 			it.ReferenceMaxLt, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_gte":
+		case "reference_gte":
 			var err error
 			it.ReferenceGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_gte":
+		case "referenceMin_gte":
 			var err error
 			it.ReferenceMinGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_gte":
+		case "referenceMax_gte":
 			var err error
 			it.ReferenceMaxGte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_lte":
+		case "reference_lte":
 			var err error
 			it.ReferenceLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_lte":
+		case "referenceMin_lte":
 			var err error
 			it.ReferenceMinLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_lte":
+		case "referenceMax_lte":
 			var err error
 			it.ReferenceMaxLte, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_in":
+		case "reference_in":
 			var err error
 			it.ReferenceIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_in":
+		case "referenceMin_in":
 			var err error
 			it.ReferenceMinIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_in":
+		case "referenceMax_in":
 			var err error
 			it.ReferenceMaxIn, err = ec.unmarshalOString2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_like":
+		case "reference_like":
 			var err error
 			it.ReferenceLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_like":
+		case "referenceMin_like":
 			var err error
 			it.ReferenceMinLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_like":
+		case "referenceMax_like":
 			var err error
 			it.ReferenceMaxLike, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_prefix":
+		case "reference_prefix":
 			var err error
 			it.ReferencePrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_prefix":
+		case "referenceMin_prefix":
 			var err error
 			it.ReferenceMinPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_prefix":
+		case "referenceMax_prefix":
 			var err error
 			it.ReferenceMaxPrefix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_suffix":
+		case "reference_suffix":
 			var err error
 			it.ReferenceSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin_suffix":
+		case "referenceMin_suffix":
 			var err error
 			it.ReferenceMinSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax_suffix":
+		case "referenceMax_suffix":
 			var err error
 			it.ReferenceMaxSuffix, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference_null":
+		case "reference_null":
 			var err error
 			it.ReferenceNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID":
+		case "referenceID":
 			var err error
 			it.ReferenceID, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin":
+		case "referenceIDMin":
 			var err error
 			it.ReferenceIDMin, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax":
+		case "referenceIDMax":
 			var err error
 			it.ReferenceIDMax, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_ne":
+		case "referenceID_ne":
 			var err error
 			it.ReferenceIDNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin_ne":
+		case "referenceIDMin_ne":
 			var err error
 			it.ReferenceIDMinNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax_ne":
+		case "referenceIDMax_ne":
 			var err error
 			it.ReferenceIDMaxNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_gt":
+		case "referenceID_gt":
 			var err error
 			it.ReferenceIDGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin_gt":
+		case "referenceIDMin_gt":
 			var err error
 			it.ReferenceIDMinGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax_gt":
+		case "referenceIDMax_gt":
 			var err error
 			it.ReferenceIDMaxGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_lt":
+		case "referenceID_lt":
 			var err error
 			it.ReferenceIDLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin_lt":
+		case "referenceIDMin_lt":
 			var err error
 			it.ReferenceIDMinLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax_lt":
+		case "referenceIDMax_lt":
 			var err error
 			it.ReferenceIDMaxLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_gte":
+		case "referenceID_gte":
 			var err error
 			it.ReferenceIDGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin_gte":
+		case "referenceIDMin_gte":
 			var err error
 			it.ReferenceIDMinGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax_gte":
+		case "referenceIDMax_gte":
 			var err error
 			it.ReferenceIDMaxGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_lte":
+		case "referenceID_lte":
 			var err error
 			it.ReferenceIDLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin_lte":
+		case "referenceIDMin_lte":
 			var err error
 			it.ReferenceIDMinLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax_lte":
+		case "referenceIDMax_lte":
 			var err error
 			it.ReferenceIDMaxLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_in":
+		case "referenceID_in":
 			var err error
 			it.ReferenceIDIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin_in":
+		case "referenceIDMin_in":
 			var err error
 			it.ReferenceIDMinIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax_in":
+		case "referenceIDMax_in":
 			var err error
 			it.ReferenceIDMaxIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID_null":
+		case "referenceID_null":
 			var err error
 			it.ReferenceIDNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
 			if err != nil {
@@ -5250,133 +5250,133 @@ func (ec *executionContext) unmarshalInputFileSortType(ctx context.Context, obj 
 			if err != nil {
 				return it, err
 			}
-		case "UID":
+		case "uid":
 			var err error
 			it.UID, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMin":
+		case "uidMin":
 			var err error
 			it.UIDMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "UIDMax":
+		case "uidMax":
 			var err error
 			it.UIDMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Size":
-			var err error
-			it.Size, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMin":
-			var err error
-			it.SizeMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeMax":
-			var err error
-			it.SizeMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "SizeAvg":
-			var err error
-			it.SizeAvg, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentType":
-			var err error
-			it.ContentType, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMin":
-			var err error
-			it.ContentTypeMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ContentTypeMax":
-			var err error
-			it.ContentTypeMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URL":
-			var err error
-			it.URL, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMin":
-			var err error
-			it.URLMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "URLMax":
-			var err error
-			it.URLMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "Name":
+		case "name":
 			var err error
 			it.Name, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMin":
+		case "nameMin":
 			var err error
 			it.NameMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "NameMax":
+		case "nameMax":
 			var err error
 			it.NameMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "Reference":
+		case "size":
+			var err error
+			it.Size, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMin":
+			var err error
+			it.SizeMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeMax":
+			var err error
+			it.SizeMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sizeAvg":
+			var err error
+			it.SizeAvg, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentType":
+			var err error
+			it.ContentType, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMin":
+			var err error
+			it.ContentTypeMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contentTypeMax":
+			var err error
+			it.ContentTypeMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "url":
+			var err error
+			it.URL, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMin":
+			var err error
+			it.URLMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "urlMax":
+			var err error
+			it.URLMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reference":
 			var err error
 			it.Reference, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMin":
+		case "referenceMin":
 			var err error
 			it.ReferenceMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceMax":
+		case "referenceMax":
 			var err error
 			it.ReferenceMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceID":
+		case "referenceID":
 			var err error
 			it.ReferenceID, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMin":
+		case "referenceIDMin":
 			var err error
 			it.ReferenceIDMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
 				return it, err
 			}
-		case "ReferenceIDMax":
+		case "referenceIDMax":
 			var err error
 			it.ReferenceIDMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
 			if err != nil {
@@ -5500,20 +5500,20 @@ func (ec *executionContext) _File(ctx context.Context, sel ast.SelectionSet, obj
 			}
 		case "email":
 			out.Values[i] = ec._File_email(ctx, field, obj)
-		case "UID":
-			out.Values[i] = ec._File_UID(ctx, field, obj)
-		case "Size":
-			out.Values[i] = ec._File_Size(ctx, field, obj)
-		case "ContentType":
-			out.Values[i] = ec._File_ContentType(ctx, field, obj)
-		case "URL":
-			out.Values[i] = ec._File_URL(ctx, field, obj)
-		case "Name":
-			out.Values[i] = ec._File_Name(ctx, field, obj)
-		case "Reference":
-			out.Values[i] = ec._File_Reference(ctx, field, obj)
-		case "ReferenceID":
-			out.Values[i] = ec._File_ReferenceID(ctx, field, obj)
+		case "uid":
+			out.Values[i] = ec._File_uid(ctx, field, obj)
+		case "name":
+			out.Values[i] = ec._File_name(ctx, field, obj)
+		case "size":
+			out.Values[i] = ec._File_size(ctx, field, obj)
+		case "contentType":
+			out.Values[i] = ec._File_contentType(ctx, field, obj)
+		case "url":
+			out.Values[i] = ec._File_url(ctx, field, obj)
+		case "reference":
+			out.Values[i] = ec._File_reference(ctx, field, obj)
+		case "referenceID":
+			out.Values[i] = ec._File_referenceID(ctx, field, obj)
 		case "updatedAt":
 			out.Values[i] = ec._File_updatedAt(ctx, field, obj)
 		case "createdAt":
