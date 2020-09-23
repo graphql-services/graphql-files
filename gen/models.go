@@ -18,7 +18,7 @@ type File struct {
 	Name        *string    `json:"name" gorm:"column:name"`
 	Size        *int       `json:"size" gorm:"column:size"`
 	ContentType *string    `json:"contentType" gorm:"column:contentType"`
-	Reference   *string    `json:"reference" gorm:"column:reference;index:true"`
+	Reference   *string    `json:"reference" gorm:"column:reference;index:reference"`
 	UpdatedAt   *time.Time `json:"updatedAt" gorm:"column:updatedAt"`
 	CreatedAt   time.Time  `json:"createdAt" gorm:"column:createdAt"`
 	UpdatedBy   *string    `json:"updatedBy" gorm:"column:updatedBy"`

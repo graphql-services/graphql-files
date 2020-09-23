@@ -3,5 +3,5 @@ type File @entity @key(fields: "id") {
   size: Int @column
   contentType: String @column
 
-  reference: String @column(index: true)
+  reference: String @column(index: "reference")
 }
