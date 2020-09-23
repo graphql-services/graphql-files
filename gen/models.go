@@ -15,7 +15,6 @@ type FileResultType struct {
 
 type File struct {
 	ID          string     `json:"id" gorm:"column:id;primary_key"`
-	UID         *string    `json:"uid" gorm:"column:uid"`
 	Name        *string    `json:"name" gorm:"column:name"`
 	Size        *int       `json:"size" gorm:"column:size"`
 	ContentType *string    `json:"contentType" gorm:"column:contentType"`
@@ -30,7 +29,6 @@ func (m *File) Is_Entity() {}
 
 type FileChanges struct {
 	ID          string
-	UID         *string
 	Name        *string
 	Size        *int
 	ContentType *string

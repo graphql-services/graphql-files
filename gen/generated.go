@@ -53,7 +53,6 @@ type ComplexityRoot struct {
 		Name        func(childComplexity int) int
 		Reference   func(childComplexity int) int
 		Size        func(childComplexity int) int
-		UID         func(childComplexity int) int
 		UpdatedAt   func(childComplexity int) int
 		UpdatedBy   func(childComplexity int) int
 	}
@@ -162,13 +161,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.File.Size(childComplexity), true
-
-	case "File.uid":
-		if e.complexity.File.UID == nil {
-			break
-		}
-
-		return e.complexity.File.UID(childComplexity), true
 
 	case "File.updatedAt":
 		if e.complexity.File.UpdatedAt == nil {
@@ -385,7 +377,6 @@ enum ObjectSortType {
 
 type File {
   id: ID!
-  uid: ID
   name: String
   size: Int
   contentType: String
@@ -398,7 +389,6 @@ type File {
 
 input FileCreateInput {
   id: ID
-  uid: ID
   name: String
   size: Int
   contentType: String
@@ -406,7 +396,6 @@ input FileCreateInput {
 }
 
 input FileUpdateInput {
-  uid: ID
   name: String
   size: Int
   contentType: String
@@ -417,9 +406,6 @@ input FileSortType {
   id: ObjectSortType
   idMin: ObjectSortType
   idMax: ObjectSortType
-  uid: ObjectSortType
-  uidMin: ObjectSortType
-  uidMax: ObjectSortType
   name: ObjectSortType
   nameMin: ObjectSortType
   nameMax: ObjectSortType
@@ -472,28 +458,6 @@ input FileFilterType {
   idMin_in: [ID!]
   idMax_in: [ID!]
   id_null: Boolean
-  uid: ID
-  uidMin: ID
-  uidMax: ID
-  uid_ne: ID
-  uidMin_ne: ID
-  uidMax_ne: ID
-  uid_gt: ID
-  uidMin_gt: ID
-  uidMax_gt: ID
-  uid_lt: ID
-  uidMin_lt: ID
-  uidMax_lt: ID
-  uid_gte: ID
-  uidMin_gte: ID
-  uidMax_gte: ID
-  uid_lte: ID
-  uidMin_lte: ID
-  uidMax_lte: ID
-  uid_in: [ID!]
-  uidMin_in: [ID!]
-  uidMax_in: [ID!]
-  uid_null: Boolean
   name: String
   nameMin: String
   nameMax: String
@@ -948,40 +912,6 @@ func (ec *executionContext) _File_id(ctx context.Context, field graphql.Collecte
 	rctx.Result = res
 	ctx = ec.Tracer.StartFieldChildExecution(ctx)
 	return ec.marshalNID2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _File_uid(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
-	ctx = ec.Tracer.StartFieldExecution(ctx, field)
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-		ec.Tracer.EndFieldExecution(ctx)
-	}()
-	rctx := &graphql.ResolverContext{
-		Object:   "File",
-		Field:    field,
-		Args:     nil,
-		IsMethod: false,
-	}
-	ctx = graphql.WithResolverContext(ctx, rctx)
-	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	rctx.Result = res
-	ctx = ec.Tracer.StartFieldChildExecution(ctx)
-	return ec.marshalOID2ᚖstring(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _File_name(ctx context.Context, field graphql.CollectedField, obj *File) (ret graphql.Marshaler) {
@@ -3078,138 +3008,6 @@ func (ec *executionContext) unmarshalInputFileFilterType(ctx context.Context, ob
 			if err != nil {
 				return it, err
 			}
-		case "uid":
-			var err error
-			it.UID, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin":
-			var err error
-			it.UIDMin, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax":
-			var err error
-			it.UIDMax, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_ne":
-			var err error
-			it.UIDNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin_ne":
-			var err error
-			it.UIDMinNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax_ne":
-			var err error
-			it.UIDMaxNe, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_gt":
-			var err error
-			it.UIDGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin_gt":
-			var err error
-			it.UIDMinGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax_gt":
-			var err error
-			it.UIDMaxGt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_lt":
-			var err error
-			it.UIDLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin_lt":
-			var err error
-			it.UIDMinLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax_lt":
-			var err error
-			it.UIDMaxLt, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_gte":
-			var err error
-			it.UIDGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin_gte":
-			var err error
-			it.UIDMinGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax_gte":
-			var err error
-			it.UIDMaxGte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_lte":
-			var err error
-			it.UIDLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin_lte":
-			var err error
-			it.UIDMinLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax_lte":
-			var err error
-			it.UIDMaxLte, err = ec.unmarshalOID2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_in":
-			var err error
-			it.UIDIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin_in":
-			var err error
-			it.UIDMinIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax_in":
-			var err error
-			it.UIDMaxIn, err = ec.unmarshalOID2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uid_null":
-			var err error
-			it.UIDNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "name":
 			var err error
 			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
@@ -4500,24 +4298,6 @@ func (ec *executionContext) unmarshalInputFileSortType(ctx context.Context, obj 
 			if err != nil {
 				return it, err
 			}
-		case "uid":
-			var err error
-			it.UID, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMin":
-			var err error
-			it.UIDMin, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "uidMax":
-			var err error
-			it.UIDMax, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "name":
 			var err error
 			it.Name, err = ec.unmarshalOObjectSortType2ᚖgithubᚗcomᚋgraphqlᚑservicesᚋgraphqlᚑfilesᚋgenᚐObjectSortType(ctx, v)
@@ -4712,8 +4492,6 @@ func (ec *executionContext) _File(ctx context.Context, sel ast.SelectionSet, obj
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "uid":
-			out.Values[i] = ec._File_uid(ctx, field, obj)
 		case "name":
 			out.Values[i] = ec._File_name(ctx, field, obj)
 		case "size":

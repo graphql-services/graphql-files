@@ -1,5 +1,4 @@
 type File @entity @key(fields: "id") {
-  uid: ID @column
   name: String @column
   size: Int @column
   contentType: String @column

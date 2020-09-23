@@ -139,49 +139,6 @@ func (f *FileFilterType) WhereContent(dialect gorm.Dialect, aliasPrefix string) 
 		}
 	}
 
-	if f.UID != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" = ?")
-		values = append(values, f.UID)
-	}
-
-	if f.UIDNe != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" != ?")
-		values = append(values, f.UIDNe)
-	}
-
-	if f.UIDGt != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" > ?")
-		values = append(values, f.UIDGt)
-	}
-
-	if f.UIDLt != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" < ?")
-		values = append(values, f.UIDLt)
-	}
-
-	if f.UIDGte != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" >= ?")
-		values = append(values, f.UIDGte)
-	}
-
-	if f.UIDLte != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" <= ?")
-		values = append(values, f.UIDLte)
-	}
-
-	if f.UIDIn != nil {
-		conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" IN (?)")
-		values = append(values, f.UIDIn)
-	}
-
-	if f.UIDNull != nil {
-		if *f.UIDNull {
-			conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" IS NULL")
-		} else {
-			conditions = append(conditions, aliasPrefix+dialect.Quote("uid")+" IS NOT NULL")
-		}
-	}
-
 	if f.Name != nil {
 		conditions = append(conditions, aliasPrefix+dialect.Quote("name")+" = ?")
 		values = append(values, f.Name)
@@ -645,76 +602,6 @@ func (f *FileFilterType) HavingContent(dialect gorm.Dialect, aliasPrefix string)
 	if f.IDMaxIn != nil {
 		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("id")+") IN (?)")
 		values = append(values, f.IDMaxIn)
-	}
-
-	if f.UIDMin != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") = ?")
-		values = append(values, f.UIDMin)
-	}
-
-	if f.UIDMax != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") = ?")
-		values = append(values, f.UIDMax)
-	}
-
-	if f.UIDMinNe != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") != ?")
-		values = append(values, f.UIDMinNe)
-	}
-
-	if f.UIDMaxNe != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") != ?")
-		values = append(values, f.UIDMaxNe)
-	}
-
-	if f.UIDMinGt != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") > ?")
-		values = append(values, f.UIDMinGt)
-	}
-
-	if f.UIDMaxGt != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") > ?")
-		values = append(values, f.UIDMaxGt)
-	}
-
-	if f.UIDMinLt != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") < ?")
-		values = append(values, f.UIDMinLt)
-	}
-
-	if f.UIDMaxLt != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") < ?")
-		values = append(values, f.UIDMaxLt)
-	}
-
-	if f.UIDMinGte != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") >= ?")
-		values = append(values, f.UIDMinGte)
-	}
-
-	if f.UIDMaxGte != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") >= ?")
-		values = append(values, f.UIDMaxGte)
-	}
-
-	if f.UIDMinLte != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") <= ?")
-		values = append(values, f.UIDMinLte)
-	}
-
-	if f.UIDMaxLte != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") <= ?")
-		values = append(values, f.UIDMaxLte)
-	}
-
-	if f.UIDMinIn != nil {
-		conditions = append(conditions, "Min("+aliasPrefix+dialect.Quote("uid")+") IN (?)")
-		values = append(values, f.UIDMinIn)
-	}
-
-	if f.UIDMaxIn != nil {
-		conditions = append(conditions, "Max("+aliasPrefix+dialect.Quote("uid")+") IN (?)")
-		values = append(values, f.UIDMaxIn)
 	}
 
 	if f.NameMin != nil {

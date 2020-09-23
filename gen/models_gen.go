@@ -38,28 +38,6 @@ type FileFilterType struct {
 	IDMinIn              []string          `json:"idMin_in"`
 	IDMaxIn              []string          `json:"idMax_in"`
 	IDNull               *bool             `json:"id_null"`
-	UID                  *string           `json:"uid"`
-	UIDMin               *string           `json:"uidMin"`
-	UIDMax               *string           `json:"uidMax"`
-	UIDNe                *string           `json:"uid_ne"`
-	UIDMinNe             *string           `json:"uidMin_ne"`
-	UIDMaxNe             *string           `json:"uidMax_ne"`
-	UIDGt                *string           `json:"uid_gt"`
-	UIDMinGt             *string           `json:"uidMin_gt"`
-	UIDMaxGt             *string           `json:"uidMax_gt"`
-	UIDLt                *string           `json:"uid_lt"`
-	UIDMinLt             *string           `json:"uidMin_lt"`
-	UIDMaxLt             *string           `json:"uidMax_lt"`
-	UIDGte               *string           `json:"uid_gte"`
-	UIDMinGte            *string           `json:"uidMin_gte"`
-	UIDMaxGte            *string           `json:"uidMax_gte"`
-	UIDLte               *string           `json:"uid_lte"`
-	UIDMinLte            *string           `json:"uidMin_lte"`
-	UIDMaxLte            *string           `json:"uidMax_lte"`
-	UIDIn                []string          `json:"uid_in"`
-	UIDMinIn             []string          `json:"uidMin_in"`
-	UIDMaxIn             []string          `json:"uidMax_in"`
-	UIDNull              *bool             `json:"uid_null"`
 	Name                 *string           `json:"name"`
 	NameMin              *string           `json:"nameMin"`
 	NameMax              *string           `json:"nameMax"`
@@ -276,9 +254,6 @@ type FileSortType struct {
 	ID             *ObjectSortType `json:"id"`
 	IDMin          *ObjectSortType `json:"idMin"`
 	IDMax          *ObjectSortType `json:"idMax"`
-	UID            *ObjectSortType `json:"uid"`
-	UIDMin         *ObjectSortType `json:"uidMin"`
-	UIDMax         *ObjectSortType `json:"uidMax"`
 	Name           *ObjectSortType `json:"name"`
 	NameMin        *ObjectSortType `json:"nameMin"`
 	NameMax        *ObjectSortType `json:"nameMax"`

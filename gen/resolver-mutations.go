@@ -90,12 +90,6 @@ func CreateFileHandler(ctx context.Context, r *GeneratedResolver, input map[stri
 		event.AddNewValue("id", changes.ID)
 	}
 
-	if _, ok := input["uid"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
-		item.UID = changes.UID
-
-		event.AddNewValue("uid", changes.UID)
-	}
-
 	if _, ok := input["name"]; ok && (item.Name != changes.Name) && (item.Name == nil || changes.Name == nil || *item.Name != *changes.Name) {
 		item.Name = changes.Name
 
@@ -168,12 +162,6 @@ func UpdateFileHandler(ctx context.Context, r *GeneratedResolver, id string, inp
 	}
 
 	item.UpdatedBy = principalID
-
-	if _, ok := input["uid"]; ok && (item.UID != changes.UID) && (item.UID == nil || changes.UID == nil || *item.UID != *changes.UID) {
-		event.AddOldValue("uid", item.UID)
-		event.AddNewValue("uid", changes.UID)
-		item.UID = changes.UID
-	}
 
 	if _, ok := input["name"]; ok && (item.Name != changes.Name) && (item.Name == nil || changes.Name == nil || *item.Name != *changes.Name) {
 		event.AddOldValue("name", item.Name)

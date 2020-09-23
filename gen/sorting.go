@@ -27,21 +27,6 @@ func (s FileSortType) ApplyWithAlias(ctx context.Context, dialect gorm.Dialect, 
 		*sorts = append(*sorts, sort)
 	}
 
-	if s.UID != nil {
-		sort := SortInfo{Field: aliasPrefix + dialect.Quote("uid"), Direction: s.UID.String()}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.UIDMin != nil {
-		sort := SortInfo{Field: "Min(" + aliasPrefix + dialect.Quote("uid") + ")", Direction: s.UIDMin.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
-	if s.UIDMax != nil {
-		sort := SortInfo{Field: "Max(" + aliasPrefix + dialect.Quote("uid") + ")", Direction: s.UIDMax.String(), IsAggregation: true}
-		*sorts = append(*sorts, sort)
-	}
-
 	if s.Name != nil {
 		sort := SortInfo{Field: aliasPrefix + dialect.Quote("name"), Direction: s.Name.String()}
 		*sorts = append(*sorts, sort)

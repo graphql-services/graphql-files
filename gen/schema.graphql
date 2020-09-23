@@ -30,7 +30,6 @@ enum ObjectSortType {
 
 type File {
   id: ID!
-  uid: ID
   name: String
   size: Int
   contentType: String
@@ -43,7 +42,6 @@ type File {
 
 input FileCreateInput {
   id: ID
-  uid: ID
   name: String
   size: Int
   contentType: String
@@ -51,7 +49,6 @@ input FileCreateInput {
 }
 
 input FileUpdateInput {
-  uid: ID
   name: String
   size: Int
   contentType: String
@@ -62,9 +59,6 @@ input FileSortType {
   id: ObjectSortType
   idMin: ObjectSortType
   idMax: ObjectSortType
-  uid: ObjectSortType
-  uidMin: ObjectSortType
-  uidMax: ObjectSortType
   name: ObjectSortType
   nameMin: ObjectSortType
   nameMax: ObjectSortType
@@ -117,28 +111,6 @@ input FileFilterType {
   idMin_in: [ID!]
   idMax_in: [ID!]
   id_null: Boolean
-  uid: ID
-  uidMin: ID
-  uidMax: ID
-  uid_ne: ID
-  uidMin_ne: ID
-  uidMax_ne: ID
-  uid_gt: ID
-  uidMin_gt: ID
-  uidMax_gt: ID
-  uid_lt: ID
-  uidMin_lt: ID
-  uidMax_lt: ID
-  uid_gte: ID
-  uidMin_gte: ID
-  uidMax_gte: ID
-  uid_lte: ID
-  uidMin_lte: ID
-  uidMax_lte: ID
-  uid_in: [ID!]
-  uidMin_in: [ID!]
-  uidMax_in: [ID!]
-  uid_null: Boolean
   name: String
   nameMin: String
   nameMax: String
